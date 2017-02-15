@@ -7,7 +7,7 @@ Author Carpentry : Persistent access for research outputs with Digital Object Id
 
 **Lesson status: In Development**
 
-##Learning Objectives:
+## Learning Objectives:
 
 - Resolve a valid Digital Object Identifier to an online landing page to
   determine what information is returned
