@@ -5,7 +5,8 @@ Author Carpentry : Persistent access for research outputs with Digital Object Id
 
 *Lesson Maintainers: Gail Clement*
 
-**Lesson status: In Development**
+**Lesson status: In Development, Piloted at CODATA-RDA Research Data Science
+Summer School, August 2016**
 
 ## Learning Objectives:
 
