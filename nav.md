@@ -4,4 +4,5 @@
 + [DOI Anatomy](01-anatomy-doi.html)
 + [Register a DOI](02-register-doi.html)
 + [DOI Metadata](03-doi-metadata.html)
++ [References](REFERENCES.html)
 + [Contact Us](mailto:authorcarpentry@library.caltech.edu)

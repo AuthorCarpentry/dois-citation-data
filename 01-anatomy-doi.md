@@ -53,7 +53,7 @@ The metadata associated with the DOI is often rich enough to provide useful
 data for a researcher. This lesson and the next look at the array of useful
 public data associated with DOIs.
 
-![Anatomy of a DOI](Figure1.jpg")
+![Anatomy of a DOI](img/Figure1.jpg")
 
 ---
 

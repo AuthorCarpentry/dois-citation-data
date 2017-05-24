@@ -36,17 +36,15 @@ Systems
 
 ## Topics:
 
-1. [Topic 1](00-getting-started.html)
-2. [Topic 2](01-working-with-openrefine.html)
-3. [Topic 3](02-scripts.html)
-4. [Topic 4](03-save-export.html)
+1. [Intro](00-intro-dois.html)
+2. [DOI Anatomy](01-anatomy-doi.html)
+3. [Register a DOI](02-register-doi.html)
+4. [DOI Metadata](03-doi-metadata.html)
 
-### Optional
-- [Topic 5](04-services.html)
 
 ## Data
 
-Data files for the lesson are available here: 
+No data files are needed 
 
 ## Requirements
 
