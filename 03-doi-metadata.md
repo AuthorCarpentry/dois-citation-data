@@ -1,14 +1,14 @@
-#Register a DOI
+# DOI Metadata
 
 15 min
 
 ------
 
 Learning Objectives:
-+ Understand the metadata associated with a DOI
-+ Apply content negotiation commands to obtain a citation for a given DOI in a
+* Understand the metadata associated with a DOI
+* Apply content negotiation commands to obtain a citation for a given DOI in a
 preferred style (e.g. BibTeX  or APA) from the CrossRef API 
-+ Gain experience with Bash command line tools to concatenate the citations
+* Gain experience with Bash command line tools to concatenate the citations
 into a single BibTeX publication list for reuse
 
 ------

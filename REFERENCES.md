@@ -1,3 +1,4 @@
+# References
 
 + curl documentation, 2016. https://curl.haxx.se/
 + CrossRef REST API, 2016.
