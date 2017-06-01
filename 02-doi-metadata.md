@@ -106,4 +106,4 @@ to retrieve different representations of a work from the API service.
 
 ---
 
-Previous: [Register a DOI](02-register-doi.html)
+Previous: [Register a DOI](01-register-doi.html)

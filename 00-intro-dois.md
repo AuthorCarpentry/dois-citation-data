@@ -1,4 +1,4 @@
-#  Persistant Identifiars and Open Citations: Basic Building Blocks of the Scholarly Web 
+#  Persistent Identifiers and Open Citations: Basic Building Blocks of the Scholarly Web 
 
 20 Minutes
 

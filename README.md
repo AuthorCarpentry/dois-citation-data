@@ -37,9 +37,8 @@ Systems
 ## Topics:
 
 1. [Intro](00-intro-dois.html)
-2. [DOI Anatomy](01-anatomy-doi.html)
-3. [Register a DOI](02-register-doi.html)
-4. [DOI Metadata](03-doi-metadata.html)
+2. [Register a DOI](01-register-doi.html)
+3. [DOI Metadata](02-doi-metadata.html)
 
 
 ## Data
