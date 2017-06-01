@@ -105,5 +105,4 @@ of works can be assigned DataCite DOI's and how many types?"
 `$ cat works_clean.txt | grep "title" | cut -d : -f 3 > works_final.txt`
 `$ cat works_final.txt | wc -l`
 
-
-
+Previous: [Register a DOI](02-register-doi.html)

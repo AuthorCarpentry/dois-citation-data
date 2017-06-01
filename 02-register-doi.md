@@ -9,4 +9,5 @@ Learning Objectives:
 
 ------
 
+Previous: [Anatomy of a DOI](01-anatomy-doi.html)  Next: [DOI Metadata](03-doi-metadata.html)
 
