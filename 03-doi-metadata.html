@@ -58,13 +58,17 @@ CrossRef and DataCite &ndash; to query and retrieve valuable metadata about rese
 outputs. The commands demonstrated use the process of DOI Content Negotiation
 to retrieve different representations of a work from the API service.</p>
 
-<h3>Exercise 1C(1). Query the Registration Agency API to retrieve a citation</h3>
+<hr />
 
-<p>for a published article</p>
+<blockquote>
+<h2>Exercise 1C(1). Query the Registration Agency API to retrieve a citation</h2>
 
-<p><code>$ curl
-http://api.crossref.org/works/http://dx.doi.org/10.1103/PhysRevLett.116.061102
-&gt; cite1.txt</code></p>
+<h2>for a published article.</h2>
+
+<blockquote>
+<h2>Solution 1C(1)</h2>
+
+<p><code>$ curl http://api.crossref.org/works/http://dx.doi.org/10.1103/PhysRevLett.116.061102 &gt; cite1.txt</code></p>
 
 <p><code>$ less cite1.txt</code></p>
 
@@ -74,20 +78,22 @@ different citation format for your purposes? Let&rsquo;s try Content Negotation 
 specify that we want the citation provided in BibTeX, a citation format used in
 many research information systems.</p>
 
-<p><code>$ curl -LH &quot;Accept:text/bibliography; style=bibtex&quot;
-http://dx.doi.org/10.1103/PhysRevLett.116.061102 &gt; cite1.bib | cat cite1.bib
-|tr ',' '\012'</code></p>
+<p><code>$ curl -LH &quot;Accept:text/bibliography; style=bibtex&quot; http://dx.doi.org/10.1103/PhysRevLett.116.061102 &gt; cite1.bib | cat cite1.bib |tr ',' '\012'</code></p>
 
 <p>Do you know of any research information services that automatically ingest
 citations in BibTeX? <strong>(Cue the ORCiD system) Keep this citation in its BibTeX
 for Lessons 2 and 3, where we add it to a publications list to cite in a new
 research paper.</strong></p>
+</blockquote>
+</blockquote>
 
 <hr />
 
-<h2>Module 1D. How do I get a Digital Object Identifier (DOI) for my material?</h2>
+<blockquote>
+<h2>Exercise 1D. How do I get a Digital Object Identifier (DOI) for my material?</h2>
 
-<hr />
+<blockquote>
+<h2>Solution 1D</h2>
 
 <p>You have a few options:</p>
 
@@ -108,20 +114,21 @@ a DOI registration is available from the DOI Foundation.</li>
 the Requests package installed. Advanced registration with Zenodo is necessary
 to obtain a authorization token to include in requests.</p>
 
-<h3>Exercise 1D(1). Quick field trip to Zenodo to explore its services</h3>
+<h2>Exercise 1D(1). Quick field trip to Zenodo to explore its services</h2>
+
+<h2>Solution 1D(1)</h2>
 
 <p>Point your web browser to Zenodo:</p>
 
-<pre><code>http://zenodo.org
-</code></pre>
+<p><a href="http://zenodo.org">http://zenodo.org</a></p>
 
 <p>Search or browse for the many different types of research resources deposited
 it for sharing. Are you surprised by the many different types of objects being
 deposited and assigned DOIs?</p>
 
-<h3>Grande Finale! Exercise 1D(2). Retrieve a list of work types that are</h3>
+<h2>Grande Finale! Exercise 1D(2). Retrieve a list of work types that arevassigned DOI&rsquo;s by DataCite.</h2>
 
-<p>assigned DOI&rsquo;s by DataCite</p>
+<h2>Solution 1D(2)</h2>
 
 <p>This exercise applies various UNIX commands to answer the question &ldquo;What types
 of works can be assigned DataCite DOI&rsquo;s and how many types?&rdquo;</p>
@@ -131,6 +138,10 @@ of works can be assigned DataCite DOI&rsquo;s and how many types?&rdquo;</p>
 <code>$ cat works_raw.txt | tr ',' '\012' &gt; works_clean.txt</code>
 <code>$ cat works_clean.txt | grep &quot;title&quot; | cut -d : -f 3 &gt; works_final.txt</code>
 <code>$ cat works_final.txt | wc -l</code></p>
+</blockquote>
+</blockquote>
+
+<hr />
 
 <p>Previous: <a href="02-register-doi.html">Register a DOI</a></p>
 

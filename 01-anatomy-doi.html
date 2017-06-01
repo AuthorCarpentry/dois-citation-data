@@ -85,43 +85,65 @@ public data associated with DOIs.</p>
 
 <hr />
 
-<h3>Exercise 1B(1). Demonstrate that a DOI redirects to the landing page for an</h3>
+<blockquote>
+<h2>Exercise 1B(1). Demonstrate that a DOI redirects to the landing page for an</h2>
 
 <p>associated digital object and retrieve the content of the landing page.</p>
+
+<blockquote>
+<h2>Solution 1B(1)</h2>
 
 <p><code>$ curl -s -S -L http://dx.doi.org/10.1103/PhysRev.109.193 &gt;landing1.txt</code></p>
 
 <p><code>$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP &gt;landing2.txt</code></p>
 
 <p><code>$ wc landing*.txt</code></p>
+</blockquote>
+</blockquote>
 
-<h3>Exercise 1B(2). Given a DOI, determine which Registration Agency issued it</h3>
+<hr />
+
+<blockquote>
+<h2>Exercise 1B(2). Given a DOI, determine which Registration Agency issued it.</h2>
+
+<blockquote>
+<h2>Solution 1B(2)</h2>
 
 <p><code>$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101</code></p>
 
-<p><code>$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101,
-doi.crossref.org/doiRA/10.2307/1578389</code></p>
-
-<p>Note that this handy lookup service is provided by one of the Registration
+<p><code>$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101, doi.crossref.org/doiRA/10.2307/1578389</code>
+Note that this handy lookup service is provided by one of the Registration
 Agencies, CrossRef, yet the query also works for DOIs issued by other
 Registration Agencies! This demonstrates that each DOI Agency provides an array
 of services beyond registering and maintaining DOIs for their members; savvy
 researchers may wish to check with more than one RA to get useful information.</p>
+</blockquote>
+</blockquote>
 
-<h3>Exercise 1B(3). Retrieve a list of DataCite members and determine the</h3>
+<hr />
 
-<p>format of the data provided</p>
+<blockquote>
+<h2>Exercise 1B(3). Retrieve a list of DataCite members and determine the</h2>
 
-<p><code>$ curl -s -S http://api.datacite.org/members &gt;datacite.txt</code>
-<code>$ less datacite.txt</code></p>
+<h2>format of the data provided</h2>
 
-<p>Note that the data comes from the Datacite API in JSON format (Javascript
+<blockquote>
+<h2>Solution 1B(3)</h2>
+
+<p><code>$ curl -s -S http://api.datacite.org/members &gt;datacite.txt</code></p>
+
+<p><code>$ less datacite.txt</code>
+Note that the data comes from the Datacite API in JSON format (Javascript
 Object Notation) &ndash; an increasingly popular metadata standard for Web services.
 JSON is great for machines to read, but not so much for humans! So let&rsquo;s
 convert it to something easier on the eyes.</p>
 
 <p><code>$ cat datacite.txt | tr ',' '\012' &gt;datacite_pretty.txt</code>
 <code>$ less datacite_pretty.txt</code></p>
+</blockquote>
+</blockquote>
+
+<hr />
 
 <p>Previous: <a href="00-intro-dois.html">What are Digital Object Identifiers and Why Do They Matter to Researchers?</a>  Next: <a href="02-register-doi.html">Register a DOI</a></p>
 

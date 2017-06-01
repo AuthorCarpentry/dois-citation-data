@@ -90,30 +90,49 @@ is associated, and how to get a DOI for a new work.</p>
 
 <hr />
 
-<h3>Exercise 1A(1). Demonstrate that a DOI redirects to a landing page for an</h3>
+<blockquote>
+<h2>Exercise 1A(1). Demonstrate that a DOI redirects to a landing page for an</h2>
 
-<p>associated information resource.</p>
+<h2>associated information resource.</h2>
+
+<blockquote>
+<h2>Solution 1A(1)</h2>
 
 <p><code>$ curl -s -S http://dx.doi.org/10.1103/PhysRev.109.193</code></p>
 
 <p><code>$ curl -s -S http://dx.doi.org/10.7935/K5H41PBP</code></p>
 
 <p><em>Whose websites did the redirects for each DOI take you to?</em></p>
+</blockquote>
+</blockquote>
 
-<h3>Exercise 1A(2). Resolve a DOI to a landing page to confirm its validity,</h3>
+<hr />
 
-<p>and determine the title of the associated digital object.</p>
+<blockquote>
+<h2>Exercise 1A(2). Resolve a DOI to a landing page to confirm its validity,</h2>
 
-<p><code>$ curl  -s -S -L http://dx.doi.org/10.1103/PhysRevLett.116.061102
-&gt;redirect1.txt</code></p>
+<h2>and determine the title of the associated digital object.</h2>
+
+<blockquote>
+<h2>Solution 1A(2)</h2>
+
+<p><code>$ curl  -s -S -L http://dx.doi.org/10.1103/PhysRevLett.116.061102 &gt;redirect1.txt</code></p>
 
 <p><code>$ grep &quot;citation_title&quot; redirect1.txt</code></p>
 
 <p><code>$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP &gt;redirect2.txt</code></p>
 
 <p><code>$ grep &quot;title&quot; redirect2.txt</code></p>
+</blockquote>
+</blockquote>
 
-<h3>Exercise 1A(3). Determine if a &lsquo;DOI-style string&rsquo; is a valid DOI</h3>
+<hr />
+
+<blockquote>
+<h2>Exercise 1A(3). Determine if a &lsquo;DOI-style string&rsquo; is a valid DOI.</h2>
+
+<blockquote>
+<h2>Solution 1A(3)</h2>
 
 <p><code>$ curl -s -S -L http://dx.doi.org/10.5454/JPSv1i220161014 | grep &quot;title&quot;</code></p>
 
@@ -122,13 +141,22 @@ publisher to detect and block unauthorized access to their system. The
 controversy surrounding publisher creation of DOI-like strings for business
 operations was taken up in an interesting posting on the CrossRef blog, <a href="http://blog.crossref.org/2016/06/doi-like-strings-and-fake-dois.html">DOI
 like strings and fake DOIs</a>.</p>
+</blockquote>
+</blockquote>
 
-<h3>Exercise 1A(4). Retrieve the landing page for a DOI object and &ldquo;pretty</h3>
+<hr />
 
-<p>print&rdquo; the output to something easier on the eyes</p>
+<blockquote>
+<h2>Exercise 1A(4). Retrieve the landing page for a DOI object and &ldquo;pretty</h2>
 
-<p><code>$ curl -s -S -L http://dx.doi.org/10.7935/K5MW2F23 &gt;ex1A4.txt</code>
-<code>$ less ex1A4.txt</code></p>
+<h2>print&rdquo; the output to something easier on the eyes.</h2>
+
+<blockquote>
+<h2>Solution 1A(4)</h2>
+
+<p><code>$ curl -s -S -L http://dx.doi.org/10.7935/K5MW2F23 &gt;ex1A4.txt</code></p>
+
+<p><code>$ less ex1A4.txt</code></p>
 
 <p>What format is the landing page provided in?</p>
 
@@ -137,6 +165,8 @@ stream editor sed. A regular expression is used to represent all unwanted
 content between html brackets.</p>
 
 <p><code>$ sed -e 's/&lt;[^&gt;]*&gt;//g' ex1A4.txt &gt; ex1A4_pretty.txt</code></p>
+</blockquote>
+</blockquote>
 
 <hr />
 

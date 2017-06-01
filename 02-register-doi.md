@@ -2,12 +2,12 @@
 
 15 min
 
-------
+---
 
 Learning Objectives:
 * Use an open repository (Zenodo) to obtain a DOI for a scholarly work
 
-------
+---
 
 ## Open repositories
 
@@ -142,5 +142,8 @@ Once you have your metadata entered, click Save.  Then click Publish to share yo
 You'll see that Zenodo brings you to the public record page for your work.
 Zenodo provides a citation that includes your newly created DOI.  We'll be
 using this DOI throughout the rest of the workshop.  
+
+
+---
 
 Previous: [Anatomy of a DOI](01-anatomy-doi.html)  Next: [DOI Metadata](03-doi-metadata.html)  
