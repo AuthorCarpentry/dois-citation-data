@@ -1,15 +1,15 @@
-#  Anatomy of the DOI System
+# Anatomy of the DOI System
 
 20 minutes 
 
----------------------------------------------------
+--------------------------------------------------
 
 ## Learning Objectives
 
 * Understand how the DOI system is organized 
 * Use the DOI resolution system to determine which Registration Agency maintains a given DOI
 
-----------------------------------------------------
+--------------------------------------------------
 
 The [International DOI System](https://www.doi.org/) is the overall
 infrastructure by which Digital Object Identifiers are assigned, registered,
@@ -94,4 +94,4 @@ convert it to something easier on the eyes.
 `$ cat datacite.txt | tr ',' '\012' >datacite_pretty.txt`
 `$ less datacite_pretty.txt`
 
-Previous: [Getting Started with OpenRefine](00-getting-started.html)  Next: [Scripts from OpenRefine](02-scripts.html)
+Previous: [What are Digital Object Identifiers and Why Do They Matter to Researchers?](00-intro-dois.html)  Next: [Register a DOI](02-register-doi.html)
