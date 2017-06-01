@@ -6,7 +6,7 @@
 
 Learning Objectives:
 
-* Understand the metadata associated with a DOI
+* Retrieve the metadata associated with a DOI
 * Apply content negotiation commands to obtain a citation for a given DOI in a
 preferred style (e.g. BibTeX  or APA) from the CrossRef API 
 * Gain experience with Bash command line tools to concatenate the citations
@@ -60,38 +60,6 @@ to retrieve different representations of a work from the API service.
 
 ---
 
-> ## Exercise 1D. How do I get a Digital Object Identifier (DOI) for my material?
-> 
-> > ## Solution 1D
-> > 
-> > You have a few options:
-> > 
-> > + Use the services of an existing Registrant, such as a Publisher, Library, or
-> > Data Center who is assisting you with disseminating and preserving your
-> > research outputs.
-> > + Submit your work to an open research sharing system such as Zenodo who issues
-> > DOIs as part of their free services to researchers.
-> > + Alternatively, your organization can join a DOI Registration Agency (RA) and
-> > become a DOI Registrant. This commitment requires an investment of time,
-> > infrastructure, funds, and human resources to ensure that registered DOIs are
-> > maintained and revised as content changes or moves. Information about becoming
-> > a DOI registration is available from the DOI Foundation.
-> > 
-> > Note that Zenodo does offer an API service which can be used via Python with
-> > the Requests package installed. Advanced registration with Zenodo is necessary
-> > to obtain a authorization token to include in requests.
-> > 
-> ## Exercise 1D(1). Quick field trip to Zenodo to explore its services
-> 
-> > ## Solution 1D(1)
-> > Point your web browser to Zenodo:
-> > 
-> > http://zenodo.org
-> > 
-> > Search or browse for the many different types of research resources deposited
-> > it for sharing. Are you surprised by the many different types of objects being
-> > deposited and assigned DOIs?
-> > 
 > ## Grande Finale! Exercise 1D(2). Retrieve a list of work types that arevassigned DOI's by DataCite.
 > 
 > > ## Solution 1D(2)

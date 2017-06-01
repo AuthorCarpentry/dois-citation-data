@@ -6,7 +6,8 @@
 
 Learning Objectives:
 
-* Use an open repository (Zenodo) to obtain a DOI for a scholarly work
+* Register a DOI for a scholarly work using an open repository (Zenodo)
+* Create appropriate metadata to describe a new work
 
 ---
 
