@@ -39,9 +39,133 @@
 encourage scholars to put more of their content online in an open format.
 Scholarly works can be added online repositories that centralize, store, and
 share the results.  Most repositories will be associated with a DOI
-Registration Agency and will generate DOIs.</p>
+Registration Agency and will generate DOIs for every item that is stored.
+Generating a DOI is one factor that you can use to determine whether a
+repository is trustworthy.  There are different types of repositories that may
+be appropriate for your scholarly works.</p>
 
-<hr />
+<h3>Domain-specific repositories</h3>
+
+<p>There are many repositories that focus on a specific type of data or data from
+a certain field.  If one exists for your data, subject specific repositories
+are great because individuals looking for a specific type of data will know to
+check that repository.  A subject-specific repository can collect data from
+researchers around the world and customize the way the data is displayed.  This
+can make it easier to find and reuse the data.  One challenge for
+domain-specific repositories is ensuring a consistent source of funding-you
+should monitor the repositories you use to ensure that your data remains
+available.</p>
+
+<p>You can find a good listing of subject-specific repositories at
+[PloS]{<a href="http://journals.plos.org/plosone/s/data-availability#loc-recommended-repositories">http://journals.plos.org/plosone/s/data-availability#loc-recommended-repositories</a>}.<br />
+A more complete list of repositories is available at [re3data]{www.re3data.org}</p>
+
+<h3>Institutional repositories</h3>
+
+<p>Many institutions host data repositories, often through the library, to preserve the data collected at the
+institution.  These repositories are often general and can take any scholarly
+works that are associated with the institution.  Because these repositories are
+associated with an institution, they may have a more consistent source of
+funding.  However, they often do not have the customization available in a
+domain-specific repository.</p>
+
+<p>An example of an institutional data repository is
+<a href="data.caltech.edu">CaltechDATA</a></p>
+
+<h3>General repositories</h3>
+
+<p>A number of general repositories exist that can collect any type of scholarly
+output.  These can be associated with a publisher, like
+[Mendeley Data]{<a href="https://data.mendeley.com/">https://data.mendeley.com/</a>} or
+[Figshare]{<a href="https://figshare.com/">https://figshare.com/</a>}.  Some institutions also run general
+repositories that are open to all, like the
+[Harvard Dataverse]{<a href="https://dataverse.harvard.edu/">https://dataverse.harvard.edu/</a>},
+[Dryad]{<a href="http://datadryad.org/">http://datadryad.org/</a>}, or
+[Zenodo]{<a href="https://www.zenodo.org/">https://www.zenodo.org/</a>}. These general repositories can be free
+(Mendeley Data, Harvard Dataverse, Zenodo), charge per submission (Dryad),
+or have size limitations (Figshare). We&rsquo;re going to use Zenodo because it is
+free, open, and associated with CERN which provides institutional backing and
+permanance.</p>
+
+<h2>Generating a DOI with Zenodo</h2>
+
+<p>To begin, go to [Zenodo]{<a href="https://www.zenodo.org/">https://www.zenodo.org/</a>} and get an account by
+clicking the sign up button in the upper right hand corner.  Then click the
+&lsquo;Upload&rsquo; link at the top of the screen and the green &lsquo;New Upload&rsquo; button.
+You&rsquo;ll see a place to drag and drop the files you&rsquo;re going to upload. Then
+click the green upload button.</p>
+
+<p>Next, you&rsquo;ll have to enter the metadata that describes your scholarly work, some of
+which will be registered with your DOI.</p>
+
+<h3>Basic Information</h3>
+
+<p>First, select the type of object you&rsquo;re uploading.  Is it a publication,
+poster, presentation, data set, image, video/audio, software, or lesson?
+You can have multiple individual files associated with a Zenodo record, and
+you&rsquo;ll want to group them in bunches that other users would want to download
+together.  For example, if you have lots of data files from the same experiment
+you would want to upload them to one record. If you have presentations on
+different topics you would want to upload them to separate
+records.</p>
+
+<p>In most cases you&rsquo;ll want to let Zenodo add the DOI and publication date.<br />
+Next, enter a title, authors, and description.  Make your description detailed
+enough so that others can understand the files you&rsquo;re uploading.  It&rsquo;s also
+good to enter some keywords to enable discovery.</p>
+
+<h3>Access and Licensing</h3>
+
+<p>Zenodo allows your files to be open, embargoed, restricted, or closed.
+Embargoed files become public on a selected data.  Access to restricted files
+can provided to specified users, and closed files are completely restricted.
+Because we&rsquo;re doing open science, select open!</p>
+
+<p>You should select a standard license for your files.  There is a lot of issues to consider
+when selecting a license, and we have an entire
+<a href="https://authorcarpentry.github.io/licensing-cc/">lesson</a> on the topic.  For
+data sets a &ldquo;Creative Commons Zero&rdquo; license is a good choice.  For
+presentations and images a &ldquo;Creative Commons Attribution 4.0&rdquo; license is a good
+choice.  On Zenodo you sometimes have to type out the entire license name
+before it finds it.</p>
+
+<h3>Communities</h3>
+
+<p>Zenodo has user-selected communities of records.  These are self-organizing
+classifications, and there may or may not be one that matches your work.</p>
+
+<h3>Funding</h3>
+
+<p>The funding field in Zenodo is specific to European Union grants (FP7 and
+Horizon 2020 programs). If you get funding under these programs your work will
+automatically be reported.  Zenodo currently recommends you add additional
+funding in the &ldquo;Additional Notes&rdquo; field (this is less than optimal).</p>
+
+<h3>Related Identifiers</h3>
+
+<p>Related identifiers are a way to connect different works together.  For
+example, let&rsquo;s say you have a data set that is associated with a paper.  You
+can add the paper DOI to Zenodo as a related identifier with &ldquo;is
+supplemented by this upload&rdquo; as the description in the second field.</p>
+
+<p>Note: This relation is registered with type &ldquo;is supplemented by&rdquo; with DataCite because
+all DataCite related identifiers are in referenced to the registered work.</p>
+
+<h3>Contributors and Other Metadata</h3>
+
+<p>You can provide some basic descriptions of contributors to a work that are not
+authors. Your options are a bit more basic than discussed in the
+<a href="https://authorcarpentry.github.io/contributor-and-credit/">attribution lesson</a>.</p>
+
+<p>There other more specialized metadata categories for References, Subjects,
+and other descriptors.  These may or may not be relevant to your work.</p>
+
+<h2>Finishing up</h2>
+
+<p>Once you have your metadata entered, click Save.  Then click Publish to share your record.
+You&rsquo;ll see that Zenodo brings you to the public record page for your work.
+Zenodo provides a citation that includes your newly created DOI.  We&rsquo;ll be
+using this DOI throughout the rest of the workshop.</p>
 
 <p>Previous: <a href="01-anatomy-doi.html">Anatomy of a DOI</a>  Next: <a href="03-doi-metadata.html">DOI Metadata</a></p>
 
