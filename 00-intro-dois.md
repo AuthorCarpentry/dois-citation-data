@@ -1,5 +1,4 @@
-#  What are Digital Object Identifiers and Why Do They Matter to
-#  Researchers ?
+#  What are Digital Object Identifiers and Why Do They Matter to Researchers ?
 10 Minutes
 
 -------------------------
@@ -11,7 +10,7 @@
 * Resolve a valid Digital Object Identifier to an online landing page to determine what information is returned
 * Test an invalid Digital Object Identifier (a DOI-like string) to determine what information is returned
 
-----------------------------------------------------
+-------------------------
 
 ## Introduction
 
@@ -113,4 +112,4 @@ content between html brackets.
 ---
 
 
-Next: [Working with OpenRefine](01-working-with-openrefine.html)
+Next: [Anatomy of the DOI System](01-anatomy-doi.html)
