@@ -35,7 +35,7 @@ available.
 
 You can find a good listing of subject-specific repositories at
 [PLOS](http://journals.plos.org/plosone/s/data-availability#loc-recommended-repositories).  
-A more complete list of repositories is available at [re3data](www.re3data.org)
+A more complete list of repositories is available at [re3data](http://www.re3data.org)
 
 ### Institutional repositories
 
@@ -47,7 +47,7 @@ funding.  However, they often do not have the customization available in a
 domain-specific repository.
 
 An example of an institutional data repository is
-[CaltechDATA](data.caltech.edu)
+[CaltechDATA](https://data.caltech.edu)
 
 ### General repositories
 
