@@ -1,7 +1,7 @@
 #  What are Digital Object Identifiers and Why Do They Matter to Researchers ?
 10 Minutes
 
--------------------------
+---
 
 ## Learning Objectives
 
@@ -10,7 +10,7 @@
 * Resolve a valid Digital Object Identifier to an online landing page to determine what information is returned
 * Test an invalid Digital Object Identifier (a DOI-like string) to determine what information is returned
 
--------------------------
+---
 
 ## Introduction
 
@@ -63,53 +63,66 @@ is associated, and how to get a DOI for a new work.
 
 ---
 
-### Exercise 1A(1). Demonstrate that a DOI redirects to a landing page for an
-associated information resource.
-
-`$ curl -s -S http://dx.doi.org/10.1103/PhysRev.109.193`
-
-`$ curl -s -S http://dx.doi.org/10.7935/K5H41PBP`
-
-*Whose websites did the redirects for each DOI take you to?*
-
-### Exercise 1A(2). Resolve a DOI to a landing page to confirm its validity,
-and determine the title of the associated digital object.
-
-`$ curl  -s -S -L http://dx.doi.org/10.1103/PhysRevLett.116.061102
->redirect1.txt`
-
-`$ grep "citation_title" redirect1.txt`
-
-`$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP >redirect2.txt`
-
-`$ grep "title" redirect2.txt`
-
-### Exercise 1A(3). Determine if a 'DOI-style string' is a valid DOI
-
-`$ curl -s -S -L http://dx.doi.org/10.5454/JPSv1i220161014 | grep "title"`
-
-Note: The faux DOI used in this example was assigned by an established
-publisher to detect and block unauthorized access to their system. The
-controversy surrounding publisher creation of DOI-like strings for business
-operations was taken up in an interesting posting on the CrossRef blog, [DOI
-like strings and fake DOIs]
-(http://blog.crossref.org/2016/06/doi-like-strings-and-fake-dois.html).
-
-### Exercise 1A(4). Retrieve the landing page for a DOI object and "pretty
-print" the output to something easier on the eyes
-
-`$ curl -s -S -L http://dx.doi.org/10.7935/K5MW2F23 >ex1A4.txt`
-`$ less ex1A4.txt`
-
-What format is the landing page provided in?
-
-To make the retrieved data easier to read, remove the markup using the the Unix
-stream editor sed. A regular expression is used to represent all unwanted
-content between html brackets.
-
-`$ sed -e 's/<[^>]*>//g' ex1A4.txt > ex1A4_pretty.txt`
+> ## Exercise 1A(1). Demonstrate that a DOI redirects to a landing page for an
+> ## associated information resource.
+>
+> > ## Solution 1A(1)
+> >
+> > `$ curl -s -S http://dx.doi.org/10.1103/PhysRev.109.193`
+> > 
+> > `$ curl -s -S http://dx.doi.org/10.7935/K5H41PBP`
+> > 
+> > *Whose websites did the redirects for each DOI take you to?*
 
 ---
 
+> ## Exercise 1A(2). Resolve a DOI to a landing page to confirm its validity,
+> ## and determine the title of the associated digital object.
+>
+> > ## Solution 1A(2)
+> >
+> > `$ curl  -s -S -L http://dx.doi.org/10.1103/PhysRevLett.116.061102 >redirect1.txt`
+> > 
+> > `$ grep "citation_title" redirect1.txt`
+> > 
+> > `$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP >redirect2.txt`
+> > 
+> > `$ grep "title" redirect2.txt`
+
+---
+
+> ## Exercise 1A(3). Determine if a 'DOI-style string' is a valid DOI.
+> 
+> > ## Solution 1A(3)
+> > 
+> > `$ curl -s -S -L http://dx.doi.org/10.5454/JPSv1i220161014 | grep "title"`
+> > 
+> > Note: The faux DOI used in this example was assigned by an established
+> > publisher to detect and block unauthorized access to their system. The
+> > controversy surrounding publisher creation of DOI-like strings for business
+> > operations was taken up in an interesting posting on the CrossRef blog, [DOI
+> > like strings and fake DOIs]
+> > (http://blog.crossref.org/2016/06/doi-like-strings-and-fake-dois.html).
+
+---
+
+> ## Exercise 1A(4). Retrieve the landing page for a DOI object and "pretty
+> ## print" the output to something easier on the eyes.
+> 
+> > ## Solution 1A(4)
+> > 
+> > `$ curl -s -S -L http://dx.doi.org/10.7935/K5MW2F23 >ex1A4.txt`
+> > 
+> > `$ less ex1A4.txt`
+> >
+> > What format is the landing page provided in?
+> > 
+> > To make the retrieved data easier to read, remove the markup using the the Unix
+> > stream editor sed. A regular expression is used to represent all unwanted
+> > content between html brackets.
+> > 
+> > `$ sed -e 's/<[^>]*>//g' ex1A4.txt > ex1A4_pretty.txt`
+
+---
 
 Next: [Anatomy of the DOI System](01-anatomy-doi.html)

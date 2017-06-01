@@ -2,14 +2,14 @@
 
 20 minutes 
 
---------------------------------------------------
+---
 
 ## Learning Objectives
 
 * Understand how the DOI system is organized 
 * Use the DOI resolution system to determine which Registration Agency maintains a given DOI
 
---------------------------------------------------
+---
 
 The [International DOI System](https://www.doi.org/) is the overall
 infrastructure by which Digital Object Identifiers are assigned, registered,
@@ -57,41 +57,50 @@ public data associated with DOIs.
 
 ---
 
-### Exercise 1B(1). Demonstrate that a DOI redirects to the landing page for an
-associated digital object and retrieve the content of the landing page.
+> ## Exercise 1B(1). Demonstrate that a DOI redirects to the landing page for an
+> associated digital object and retrieve the content of the landing page.
+> 
+> > ## Solution 1B(1)
+> > 
+> > `$ curl -s -S -L http://dx.doi.org/10.1103/PhysRev.109.193 >landing1.txt`
+> > 
+> > `$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP >landing2.txt`
+> > 
+> > `$ wc landing*.txt`
 
-   
-`$ curl -s -S -L http://dx.doi.org/10.1103/PhysRev.109.193 >landing1.txt`
+---
 
-`$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP >landing2.txt`
+> ## Exercise 1B(2). Given a DOI, determine which Registration Agency issued it.
+> 
+> > ## Solution 1B(2)
+> > 
+> > `$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101`
+> > 
+> > `$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101, doi.crossref.org/doiRA/10.2307/1578389`
+> > Note that this handy lookup service is provided by one of the Registration
+> > Agencies, CrossRef, yet the query also works for DOIs issued by other
+> > Registration Agencies! This demonstrates that each DOI Agency provides an array
+> > of services beyond registering and maintaining DOIs for their members; savvy
+> > researchers may wish to check with more than one RA to get useful information.
 
-`$ wc landing*.txt`
+---
 
-### Exercise 1B(2). Given a DOI, determine which Registration Agency issued it
+> ## Exercise 1B(3). Retrieve a list of DataCite members and determine the
+> ## format of the data provided
+>
+> > ## Solution 1B(3)
+> >
+> > `$ curl -s -S http://api.datacite.org/members >datacite.txt`
+> > 
+> > `$ less datacite.txt`
+> > Note that the data comes from the Datacite API in JSON format (Javascript
+> > Object Notation) -- an increasingly popular metadata standard for Web services.
+> > JSON is great for machines to read, but not so much for humans! So let's
+> > convert it to something easier on the eyes.
+> > 
+> > `$ cat datacite.txt | tr ',' '\012' >datacite_pretty.txt`
+> > `$ less datacite_pretty.txt`
 
-`$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101`
-
-`$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101,
-doi.crossref.org/doiRA/10.2307/1578389`
-
-Note that this handy lookup service is provided by one of the Registration
-Agencies, CrossRef, yet the query also works for DOIs issued by other
-Registration Agencies! This demonstrates that each DOI Agency provides an array
-of services beyond registering and maintaining DOIs for their members; savvy
-researchers may wish to check with more than one RA to get useful information.
-
-### Exercise 1B(3). Retrieve a list of DataCite members and determine the
-format of the data provided
-
-`$ curl -s -S http://api.datacite.org/members >datacite.txt`
-`$ less datacite.txt`
-
-Note that the data comes from the Datacite API in JSON format (Javascript
-Object Notation) -- an increasingly popular metadata standard for Web services.
-JSON is great for machines to read, but not so much for humans! So let's
-convert it to something easier on the eyes.
-
-`$ cat datacite.txt | tr ',' '\012' >datacite_pretty.txt`
-`$ less datacite_pretty.txt`
+---
 
 Previous: [What are Digital Object Identifiers and Why Do They Matter to Researchers?](00-intro-dois.html)  Next: [Register a DOI](02-register-doi.html)

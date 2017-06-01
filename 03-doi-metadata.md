@@ -34,75 +34,75 @@ CrossRef and DataCite -- to query and retrieve valuable metadata about research
 outputs. The commands demonstrated use the process of DOI Content Negotiation
 to retrieve different representations of a work from the API service.
 
+---
 
-### Exercise 1C(1). Query the Registration Agency API to retrieve a citation
-for a published article
-
-
-`$ curl
-http://api.crossref.org/works/http://dx.doi.org/10.1103/PhysRevLett.116.061102
-> cite1.txt `
-
-`$ less cite1.txt`
-
-The retrieved citation is in JSON format -- a popular way for presenting
-citation metadata that can be parsed by machines. But what if you need a
-different citation format for your purposes? Let's try Content Negotation to
-specify that we want the citation provided in BibTeX, a citation format used in
-many research information systems.
-
-`$ curl -LH "Accept:text/bibliography; style=bibtex"
-http://dx.doi.org/10.1103/PhysRevLett.116.061102 > cite1.bib | cat cite1.bib
-|tr ',' '\012'`
-
-Do you know of any research information services that automatically ingest
-citations in BibTeX? **(Cue the ORCiD system) Keep this citation in its BibTeX
-for Lessons 2 and 3, where we add it to a publications list to cite in a new
-research paper.**
+> ## Exercise 1C(1). Query the Registration Agency API to retrieve a citation
+> ## for a published article.
+> 
+> > ## Solution 1C(1)
+> > `$ curl http://api.crossref.org/works/http://dx.doi.org/10.1103/PhysRevLett.116.061102 > cite1.txt`
+> > 
+> > `$ less cite1.txt`
+> > 
+> > The retrieved citation is in JSON format -- a popular way for presenting
+> > citation metadata that can be parsed by machines. But what if you need a
+> > different citation format for your purposes? Let's try Content Negotation to
+> > specify that we want the citation provided in BibTeX, a citation format used in
+> > many research information systems.
+> > 
+> > `$ curl -LH "Accept:text/bibliography; style=bibtex" http://dx.doi.org/10.1103/PhysRevLett.116.061102 > cite1.bib | cat cite1.bib |tr ',' '\012'`
+> > 
+> > Do you know of any research information services that automatically ingest
+> > citations in BibTeX? **(Cue the ORCiD system) Keep this citation in its BibTeX
+> > for Lessons 2 and 3, where we add it to a publications list to cite in a new
+> > research paper.**
 
 ---
 
-## Module 1D. How do I get a Digital Object Identifier (DOI) for my material?
+> ## Exercise 1D. How do I get a Digital Object Identifier (DOI) for my material?
+> 
+> > ## Solution 1D
+> > 
+> > You have a few options:
+> > 
+> > + Use the services of an existing Registrant, such as a Publisher, Library, or
+> > Data Center who is assisting you with disseminating and preserving your
+> > research outputs.
+> > + Submit your work to an open research sharing system such as Zenodo who issues
+> > DOIs as part of their free services to researchers.
+> > + Alternatively, your organization can join a DOI Registration Agency (RA) and
+> > become a DOI Registrant. This commitment requires an investment of time,
+> > infrastructure, funds, and human resources to ensure that registered DOIs are
+> > maintained and revised as content changes or moves. Information about becoming
+> > a DOI registration is available from the DOI Foundation.
+> > 
+> > Note that Zenodo does offer an API service which can be used via Python with
+> > the Requests package installed. Advanced registration with Zenodo is necessary
+> > to obtain a authorization token to include in requests.
+> > 
+> ## Exercise 1D(1). Quick field trip to Zenodo to explore its services
+> 
+> > ## Solution 1D(1)
+> > Point your web browser to Zenodo:
+> > 
+> > http://zenodo.org
+> > 
+> > Search or browse for the many different types of research resources deposited
+> > it for sharing. Are you surprised by the many different types of objects being
+> > deposited and assigned DOIs?
+> > 
+> ## Grande Finale! Exercise 1D(2). Retrieve a list of work types that arevassigned DOI's by DataCite.
+> 
+> > ## Solution 1D(2)
+> > This exercise applies various UNIX commands to answer the question "What types
+> > of works can be assigned DataCite DOI's and how many types?"
+> > 
+> > `$ curl https://api.datacite.org/work-types > works_raw.txt`
+> > `$ head works_raw.txt`
+> > `$ cat works_raw.txt | tr ',' '\012' > works_clean.txt`
+> > `$ cat works_clean.txt | grep "title" | cut -d : -f 3 > works_final.txt`
+> > `$ cat works_final.txt | wc -l`
 
 ---
-
-You have a few options:
-
-+ Use the services of an existing Registrant, such as a Publisher, Library, or
-Data Center who is assisting you with disseminating and preserving your
-research outputs.
-+ Submit your work to an open research sharing system such as Zenodo who issues
-DOIs as part of their free services to researchers.
-+ Alternatively, your organization can join a DOI Registration Agency (RA) and
-become a DOI Registrant. This commitment requires an investment of time,
-infrastructure, funds, and human resources to ensure that registered DOIs are
-maintained and revised as content changes or moves. Information about becoming
-a DOI registration is available from the DOI Foundation.
-
-Note that Zenodo does offer an API service which can be used via Python with
-the Requests package installed. Advanced registration with Zenodo is necessary
-to obtain a authorization token to include in requests.
-
-### Exercise 1D(1). Quick field trip to Zenodo to explore its services
-
-Point your web browser to Zenodo:
-
-    http://zenodo.org
-
-Search or browse for the many different types of research resources deposited
-it for sharing. Are you surprised by the many different types of objects being
-deposited and assigned DOIs?
-
-### Grande Finale! Exercise 1D(2). Retrieve a list of work types that are
-assigned DOI's by DataCite
-
-This exercise applies various UNIX commands to answer the question "What types
-of works can be assigned DataCite DOI's and how many types?"
-
-`$ curl https://api.datacite.org/work-types > works_raw.txt`
-`$ head works_raw.txt`
-`$ cat works_raw.txt | tr ',' '\012' > works_clean.txt`
-`$ cat works_clean.txt | grep "title" | cut -d : -f 3 > works_final.txt`
-`$ cat works_final.txt | wc -l`
 
 Previous: [Register a DOI](02-register-doi.html)
