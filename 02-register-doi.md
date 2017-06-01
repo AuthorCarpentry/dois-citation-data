@@ -12,7 +12,7 @@ Learning Objectives:
 
 ## Open repositories
 
-Open science and [FAIR principles]{https://www.force11.org/group/fairgroup/fairprinciples}
+Open science and [FAIR principles](https://www.force11.org/group/fairgroup/fairprinciples)
 encourage scholars to put more of their content online in an open format.
 Scholarly works can be added online repositories that centralize, store, and
 share the results.  Most repositories will be associated with a DOI
@@ -34,8 +34,8 @@ should monitor the repositories you use to ensure that your data remains
 available.  
 
 You can find a good listing of subject-specific repositories at
-[PloS]{http://journals.plos.org/plosone/s/data-availability#loc-recommended-repositories}.  
-A more complete list of repositories is available at [re3data]{www.re3data.org}
+[PLOS](http://journals.plos.org/plosone/s/data-availability#loc-recommended-repositories).  
+A more complete list of repositories is available at [re3data](www.re3data.org)
 
 ### Institutional repositories
 
@@ -53,12 +53,12 @@ An example of an institutional data repository is
 
 A number of general repositories exist that can collect any type of scholarly
 output.  These can be associated with a publisher, like 
-[Mendeley Data]{https://data.mendeley.com/} or
-[Figshare]{https://figshare.com/}.  Some institutions also run general
+[Mendeley Data](https://data.mendeley.com/) or
+[Figshare](https://figshare.com/).  Some institutions also run general
 repositories that are open to all, like the 
-[Harvard Dataverse]{https://dataverse.harvard.edu/}, 
-[Dryad]{http://datadryad.org/}, or
-[Zenodo]{https://www.zenodo.org/}. These general repositories can be free 
+[Harvard Dataverse](https://dataverse.harvard.edu/), 
+[Dryad](http://datadryad.org/), or
+[Zenodo](https://www.zenodo.org/). These general repositories can be free 
 (Mendeley Data, Harvard Dataverse, Zenodo), charge per submission (Dryad),
 or have size limitations (Figshare). We're going to use Zenodo because it is
 free, open, and associated with CERN which provides institutional backing and
@@ -66,7 +66,7 @@ permanance.
 
 ## Generating a DOI with Zenodo
 
-To begin, go to [Zenodo]{https://www.zenodo.org/} and get an account by
+To begin, go to [Zenodo](https://www.zenodo.org/) and get an account by
 clicking the sign up button in the upper right hand corner.  Then click the
 'Upload' link at the top of the screen and the green 'New Upload' button.
 You'll see a place to drag and drop the files you're going to upload. Then
