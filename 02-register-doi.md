@@ -9,5 +9,13 @@ Learning Objectives:
 
 ------
 
-Previous: [Anatomy of a DOI](01-anatomy-doi.html)  Next: [DOI Metadata](03-doi-metadata.html)
+## Open repositories
 
+Open science and [FAIR principles]{https://www.force11.org/group/fairgroup/fairprinciples}
+encourage scholars to put more of their content online in an open format.
+Scholarly works can be added online repositories that centralize, store, and
+share the results.  Most repositories will be associated with a DOI
+Registration Agency and will generate DOIs. 
+
+
+Previous: [Anatomy of a DOI](01-anatomy-doi.html)  Next: [DOI Metadata](03-doi-metadata.html)  
