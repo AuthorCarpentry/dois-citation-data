@@ -74,4 +74,24 @@ to retrieve different representations of a work from the API service.
 
 ---
 
+---
+
+> ## Exercise 2B. Creating a file of BibTeX citations
+> Fetch several references from an open database on the Web and
+> use them to compose a bibliography.
+>
+> > ## Solution 2B
+> > Save each citation in BibTeX format for reuse (e.g., save as cite1.bib,
+> > cite2.bib, etc.). Concatenate the individual BibTeX citations into one
+> > bibliography
+> > using command line tools:
+> >
+> > `$cat cite1.bib, cite2.bib, cite3 bib > citations.bib`
+> > 
+> > `$cat citations.bib`
+> > 
+> > Everything look okay? Save that concatenated file
+
+---
+
 Previous: [Register a DOI](01-register-doi.html)
