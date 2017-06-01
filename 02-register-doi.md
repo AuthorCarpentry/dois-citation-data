@@ -5,6 +5,7 @@
 ---
 
 Learning Objectives:
+
 * Use an open repository (Zenodo) to obtain a DOI for a scholarly work
 
 ---

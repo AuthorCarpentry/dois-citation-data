@@ -5,6 +5,7 @@
 ------
 
 Learning Objectives:
+
 * Understand the metadata associated with a DOI
 * Apply content negotiation commands to obtain a citation for a given DOI in a
 preferred style (e.g. BibTeX  or APA) from the CrossRef API 
