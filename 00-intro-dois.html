@@ -22,19 +22,20 @@
 </nav>
 
 <section>
-<h1>What are Digital Object Identifiers and Why Do They Matter to Researchers ?</h1>
+<h1>Persistant Identifiars and Open Citations: Basic Building Blocks of the Scholarly Web</h1>
 
-<p>10 Minutes</p>
+<p>20 Minutes</p>
 
 <hr />
 
 <h2>Learning Objectives</h2>
 
 <ul>
-<li>Understand Digital Object Identifiers and reasons to use them</li>
-<li>Use basic curl commands</li>
-<li>Resolve a valid Digital Object Identifier to an online landing page to determine what information is returned</li>
-<li>Test an invalid Digital Object Identifier (a DOI-like string) to determine what information is returned</li>
+<li>Recognize the essential role of Digital Object Identifiers for the scholarly web</li>
+<li>List reasons to use DOIs</li>
+<li>Identify components of a DOI</li>
+<li>Apply basic curl commands to test and resolve DOIs for research objects</li>
+<li>Explain how the DOI registration system is organized and what information it yields for authors</li>
 </ul>
 
 <hr />
@@ -168,9 +169,123 @@ content between html brackets.</p>
 </blockquote>
 </blockquote>
 
+<h2>Anatomy of a DOI</h2>
+
+<p>The <a href="https://www.doi.org/">International DOI System</a> is the overall
+infrastructure by which Digital Object Identifiers are assigned, registered,
+resolved, and associated with valuable metadata including citation,
+availability of full text, funder information, licensing information, and more.
+The following components of the DOI System together make it work:</p>
+
+<ul>
+<li>The <a href="http://www.doi.org/doi_handbook/7_IDF.html">International DOI Federation
+(IDF)</a> is responsible for the
+overall governance of the system. IDF is a not-for-profit membership
+organization that oversees the operations of the federation of Registration
+Agencies which provide Digital Object Identifier (DOI) services and
+registration. IDF is also the registration authority for the ISO standard (ISO
+26324) for the DOI system.</li>
+<li><a href="https://www.doi.org/registration_agencies.html">Registration Agencies (RAs)</a>
+provide services to Registrants (or Members) — allocating DOI name prefixes,
+registering DOI names and providing the necessary infrastructure to allow
+Registrants to declare and maintain metadata and state data. Each RA must
+follow basic protocols and standards of the DOI sytem, including a minimum
+metadata standard known as the DOI kernel. Yet each RA has the freedom to
+implement additional metadata standards, track a range of information about a
+given DOI resource, and offer public services for querying their databases. As
+an example, the Registration Agency CrossRef registers a range of metadata
+about scholarly resources including funding data, license associated with the
+digital object, author data including ORCiD numbers, and more &ndash; see April
+Ondis&rsquo; CrossRef Blog posting &ldquo;<a href="http://blog.crossref.org/2016/06/beyond-the-doi-to-richer-metadata.html">Beyond the DOI to richer
+metadata</a>&ldquo;
+for more info about their services.</li>
+<li>Registrants (or Members) of a given Registration Agency register DOIs for
+information resources under their responsibility. Registrants include
+publishers, data centers, universities, libraries, university presses, and open
+data sharing repositories such as Zenodo. Registrants must follow the policies
+and procedures established by the RA in order to register DOIs. Each Registrant
+is given a unique member code that uniquely distinguishes them amongst all
+members of the RA. Each member also receives one or more unique prefix codes
+that forms the first part of the DOI sequence. The Registrant then uses the
+suffix portion of the DOI sequence to assign unique names to each resource they
+manage.</li>
+</ul>
+
+<p>The metadata associated with the DOI is often rich enough to provide useful
+data for a researcher. This lesson and the next look at the array of useful
+public data associated with DOIs.</p>
+
+<p><img src="img/Figure1.jpg" alt="Anatomy of a DOI" /></p>
+
 <hr />
 
-<p>Next: <a href="01-anatomy-doi.html">Anatomy of the DOI System</a></p>
+<blockquote>
+<h2>Exercise 1A(5). Demonstrate that a DOI redirects to the landing page for</h2>
+
+<p>an
+associated digital object and retrieve the content of the landing page.</p>
+
+<blockquote>
+<h2>Solution 1A(5)</h2>
+
+<p><code>$ curl -s -S -L http://dx.doi.org/10.1103/PhysRev.109.193 &gt;landing1.txt</code></p>
+
+<p><code>$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP &gt;landing2.txt</code></p>
+
+<p><code>$ wc landing*.txt</code></p>
+</blockquote>
+</blockquote>
+
+<hr />
+
+<blockquote>
+<h2>Exercise 1A(6). Given a DOI, determine which Registration Agency issued</h2>
+
+<p>it.</p>
+
+<blockquote>
+<h2>Solution 1A(6)</h2>
+
+<p><code>$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101</code></p>
+
+<p><code>$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101,
+doi.crossref.org/doiRA/10.2307/1578389</code>
+Note that this handy lookup service is provided by one of the Registration
+Agencies, CrossRef, yet the query also works for DOIs issued by other
+Registration Agencies! This demonstrates that each DOI Agency provides an
+array
+of services beyond registering and maintaining DOIs for their members;
+savvy
+researchers may wish to check with more than one RA to get useful
+information.</p>
+</blockquote>
+</blockquote>
+
+<hr />
+
+<blockquote>
+<h2>Exercise 1A(7). Retrieve a list of DataCite members and determine the format of the data provided</h2>
+
+<blockquote>
+<h2>Solution 1A(7)</h2>
+
+<p><code>$ curl -s -S http://api.datacite.org/members &gt;datacite.txt</code></p>
+
+<p><code>$ less datacite.txt</code>
+Note that the data comes from the Datacite API in JSON format (Javascript
+Object Notation) &ndash; an increasingly popular metadata standard for Web
+services.
+JSON is great for machines to read, but not so much for humans! So let&rsquo;s
+convert it to something easier on the eyes.</p>
+
+<p><code>$ cat datacite.txt | tr ',' '\012' &gt;datacite_pretty.txt</code>
+<code>$ less datacite_pretty.txt</code></p>
+</blockquote>
+</blockquote>
+
+<hr />
+
+<p>Next: <a href="01-register-doi.html">Register a DOI</a></p>
 
 </section>
 
