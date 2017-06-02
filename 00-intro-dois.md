@@ -60,8 +60,8 @@ published, who has published it, under what conditions (with what funding,
 whether the work is available open access, whether the work has been updated
 since publication, and more.)
 
-This lesson explores the anatomy of a DOI, how it is generated, what metadata
-is associated, and how to get a DOI for a new work.
+We'll explore the anatomy of a DOI, how it is generated, and how to get 
+information about a DOI.
 
 ---
 
@@ -139,7 +139,6 @@ organization that oversees the operations of the federation of Registration
 Agencies which provide Digital Object Identifier (DOI) services and
 registration. IDF is also the registration authority for the ISO standard (ISO
 26324) for the DOI system.
-
 + [Registration Agencies (RAs)](https://www.doi.org/registration_agencies.html)
 provide services to Registrants (or Members) — allocating DOI name prefixes,
 registering DOI names and providing the necessary infrastructure to allow
@@ -154,7 +153,6 @@ digital object, author data including ORCiD numbers, and more -- see April
 Ondis' CrossRef Blog posting 
 [Beyond the DOI to richer metadata](http://blog.crossref.org/2016/06/beyond-the-doi-to-richer-metadata.html)
 for more info about their services.
-
 + Registrants (or Members) of a given Registration Agency register DOIs for
 information resources under their responsibility. Registrants include
 publishers, data centers, universities, libraries, university presses, and open
@@ -167,10 +165,10 @@ suffix portion of the DOI sequence to assign unique names to each resource they
 manage.
 
 The metadata associated with the DOI is often rich enough to provide useful
-data for a researcher. This lesson and the next look at the array of useful
-public data associated with DOIs.
+data for a researcher. We'll look at this data throughout the rest of the
+lesson.
 
-![Anatomy of a DOI](img/Figure1.jpg")
+<img src="img/Figure1.jpg" alt="Anatomy of a DOI" width="666" height ="371">
 
 ---
 
