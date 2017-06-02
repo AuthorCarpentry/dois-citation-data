@@ -28,7 +28,7 @@ curated datasets, theses, conference papers, pre-prints, technical reports, and
 books.
 
 DOIs are actionable on the Internet: when put in URL form
-(http://dx.doi.org/{DOI}, these strings automatically redirect to an online
+(https://doi.org/{DOI}, these strings automatically redirect to an online
 landing page that offers information about the research object.  Often, but not
 always, the landing page contains a link to the resource itself. Where the
 resource is not online, the landing page indicates where to find it. For
@@ -133,13 +133,13 @@ resolved, and associated with valuable metadata including citation,
 availability of full text, funder information, licensing information, and more.
 The following components of the DOI System together make it work:
 
-+ The [International DOI Federation
-(IDF)](http://www.doi.org/doi_handbook/7_IDF.html) is responsible for the
-overall governance of the system. IDF is a not-for-profit membership
++ The [International DOI Federation (IDF)](http://www.doi.org/doi_handbook/7_IDF.html) 
+is responsible for the overall governance of the system. IDF is a not-for-profit membership
 organization that oversees the operations of the federation of Registration
 Agencies which provide Digital Object Identifier (DOI) services and
 registration. IDF is also the registration authority for the ISO standard (ISO
 26324) for the DOI system.
+
 + [Registration Agencies (RAs)](https://www.doi.org/registration_agencies.html)
 provide services to Registrants (or Members) — allocating DOI name prefixes,
 registering DOI names and providing the necessary infrastructure to allow
@@ -151,9 +151,10 @@ given DOI resource, and offer public services for querying their databases. As
 an example, the Registration Agency CrossRef registers a range of metadata
 about scholarly resources including funding data, license associated with the
 digital object, author data including ORCiD numbers, and more -- see April
-Ondis' CrossRef Blog posting "[Beyond the DOI to richer
-metadata](http://blog.crossref.org/2016/06/beyond-the-doi-to-richer-metadata.html)"
+Ondis' CrossRef Blog posting 
+[Beyond the DOI to richer metadata](http://blog.crossref.org/2016/06/beyond-the-doi-to-richer-metadata.html)
 for more info about their services.
+
 + Registrants (or Members) of a given Registration Agency register DOIs for
 information resources under their responsibility. Registrants include
 publishers, data centers, universities, libraries, university presses, and open
@@ -173,9 +174,8 @@ public data associated with DOIs.
 
 ---
 
-> ## Exercise 1A(5). Demonstrate that a DOI redirects to the landing page for
-> an
-> associated digital object and retrieve the content of the landing page.
+> ## Exercise 1A(5). Demonstrate that a DOI redirects to the landing page for an
+> ## associated digital object and retrieve the content of the landing page.
 > 
 > > ## Solution 1A(5)
 > > 
@@ -187,8 +187,7 @@ public data associated with DOIs.
 
 ---
 
-> ## Exercise 1A(6). Given a DOI, determine which Registration Agency issued
-> it.
+> ## Exercise 1A(6). Given a DOI, determine which Registration Agency issued it.
 > 
 > > ## Solution 1A(6)
 > > 
