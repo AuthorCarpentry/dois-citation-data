@@ -65,10 +65,10 @@ is associated, and how to get a DOI for a new work.
 
 ---
 
-> ## Exercise 1A(1). Demonstrate that a DOI redirects to a landing page for an
+> ## Exercise 1A. Demonstrate that a DOI redirects to a landing page for an
 > ## associated information resource.
 >
-> > ## Solution 1A(1)
+> > ## Solution 1A
 > >
 > > `$ curl -s -S http://dx.doi.org/10.1103/PhysRev.109.193`
 > > 
@@ -78,10 +78,10 @@ is associated, and how to get a DOI for a new work.
 
 ---
 
-> ## Exercise 1A(2). Resolve a DOI to a landing page to confirm its validity,
+> ## Exercise 1B. Resolve a DOI to a landing page to confirm its validity,
 > ## and determine the title of the associated digital object.
 >
-> > ## Solution 1A(2)
+> > ## Solution 1B
 > >
 > > `$ curl  -s -S -L http://dx.doi.org/10.1103/PhysRevLett.116.061102 >redirect1.txt`
 > > 
@@ -93,9 +93,9 @@ is associated, and how to get a DOI for a new work.
 
 ---
 
-> ## Exercise 1A(3). Determine if a 'DOI-style string' is a valid DOI.
+> ## Exercise 1C. Determine if a 'DOI-style string' is a valid DOI.
 > 
-> > ## Solution 1A(3)
+> > ## Solution 1C
 > > 
 > > `$ curl -s -S -L http://dx.doi.org/10.5454/JPSv1i220161014 | grep "title"`
 > > 
@@ -108,10 +108,10 @@ is associated, and how to get a DOI for a new work.
 
 ---
 
-> ## Exercise 1A(4). Retrieve the landing page for a DOI object and "pretty
+> ## Exercise 1D. Retrieve the landing page for a DOI object and "pretty
 > ## print" the output to something easier on the eyes.
 > 
-> > ## Solution 1A(4)
+> > ## Solution 1D
 > > 
 > > `$ curl -s -S -L http://dx.doi.org/10.7935/K5MW2F23 >ex1A4.txt`
 > > 
@@ -174,10 +174,10 @@ public data associated with DOIs.
 
 ---
 
-> ## Exercise 1A(5). Demonstrate that a DOI redirects to the landing page for an
+> ## Exercise 1E. Demonstrate that a DOI redirects to the landing page for an
 > ## associated digital object and retrieve the content of the landing page.
 > 
-> > ## Solution 1A(5)
+> > ## Solution 1E
 > > 
 > > `$ curl -s -S -L http://dx.doi.org/10.1103/PhysRev.109.193 >landing1.txt`
 > > 
@@ -187,9 +187,9 @@ public data associated with DOIs.
 
 ---
 
-> ## Exercise 1A(6). Given a DOI, determine which Registration Agency issued it.
+> ## Exercise 1F. Given a DOI, determine which Registration Agency issued it.
 > 
-> > ## Solution 1A(6)
+> > ## Solution 1F
 > > 
 > > `$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101`
 > > 
@@ -206,9 +206,9 @@ public data associated with DOIs.
 
 ---
 
-> ## Exercise 1A(7). Retrieve a list of DataCite members and determine the format of the data provided
+> ## Exercise 1G. Retrieve a list of DataCite members and determine the format of the data provided
 >
-> > ## Solution 1A(7)
+> > ## Solution 1G
 > >
 > > `$ curl -s -S http://api.datacite.org/members >datacite.txt`
 > > 

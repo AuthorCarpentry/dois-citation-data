@@ -37,10 +37,10 @@ to retrieve different representations of a work from the API service.
 
 ---
 
-> ## Exercise 1C(1). Query the Registration Agency API to retrieve a citation
+> ## Exercise 3A. Query the Registration Agency API to retrieve a citation
 > ## for a published article.
 > 
-> > ## Solution 1C(1)
+> > ## Solution 3A
 > > `$ curl http://api.crossref.org/works/http://dx.doi.org/10.1103/PhysRevLett.116.061102 > cite1.txt`
 > > 
 > > `$ less cite1.txt`
@@ -60,9 +60,9 @@ to retrieve different representations of a work from the API service.
 
 ---
 
-> ## Grande Finale! Exercise 1D(2). Retrieve a list of work types that arevassigned DOI's by DataCite.
+> ## Exercise 3B. Retrieve a list of work types that are assigned DOI's by DataCite.
 > 
-> > ## Solution 1D(2)
+> > ## Solution 3B
 > > This exercise applies various UNIX commands to answer the question "What types
 > > of works can be assigned DataCite DOI's and how many types?"
 > > 
@@ -74,13 +74,11 @@ to retrieve different representations of a work from the API service.
 
 ---
 
----
-
-> ## Exercise 2B. Creating a file of BibTeX citations
+> ## Exercise 3C. Creating a file of BibTeX citations
 > Fetch several references from an open database on the Web and
 > use them to compose a bibliography.
 >
-> > ## Solution 2B
+> > ## Solution 3C
 > > Save each citation in BibTeX format for reuse (e.g., save as cite1.bib,
 > > cite2.bib, etc.). Concatenate the individual BibTeX citations into one
 > > bibliography

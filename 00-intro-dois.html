@@ -91,12 +91,12 @@ is associated, and how to get a DOI for a new work.</p>
 <hr />
 
 <blockquote>
-<h2>Exercise 1A(1). Demonstrate that a DOI redirects to a landing page for an</h2>
+<h2>Exercise 1A. Demonstrate that a DOI redirects to a landing page for an</h2>
 
 <h2>associated information resource.</h2>
 
 <blockquote>
-<h2>Solution 1A(1)</h2>
+<h2>Solution 1A</h2>
 
 <p><code>$ curl -s -S http://dx.doi.org/10.1103/PhysRev.109.193</code></p>
 
@@ -109,12 +109,12 @@ is associated, and how to get a DOI for a new work.</p>
 <hr />
 
 <blockquote>
-<h2>Exercise 1A(2). Resolve a DOI to a landing page to confirm its validity,</h2>
+<h2>Exercise 1B. Resolve a DOI to a landing page to confirm its validity,</h2>
 
 <h2>and determine the title of the associated digital object.</h2>
 
 <blockquote>
-<h2>Solution 1A(2)</h2>
+<h2>Solution 1B</h2>
 
 <p><code>$ curl  -s -S -L http://dx.doi.org/10.1103/PhysRevLett.116.061102 &gt;redirect1.txt</code></p>
 
@@ -129,10 +129,10 @@ is associated, and how to get a DOI for a new work.</p>
 <hr />
 
 <blockquote>
-<h2>Exercise 1A(3). Determine if a &lsquo;DOI-style string&rsquo; is a valid DOI.</h2>
+<h2>Exercise 1C. Determine if a &lsquo;DOI-style string&rsquo; is a valid DOI.</h2>
 
 <blockquote>
-<h2>Solution 1A(3)</h2>
+<h2>Solution 1C</h2>
 
 <p><code>$ curl -s -S -L http://dx.doi.org/10.5454/JPSv1i220161014 | grep &quot;title&quot;</code></p>
 
@@ -147,12 +147,12 @@ like strings and fake DOIs</a>.</p>
 <hr />
 
 <blockquote>
-<h2>Exercise 1A(4). Retrieve the landing page for a DOI object and &ldquo;pretty</h2>
+<h2>Exercise 1D. Retrieve the landing page for a DOI object and &ldquo;pretty</h2>
 
 <h2>print&rdquo; the output to something easier on the eyes.</h2>
 
 <blockquote>
-<h2>Solution 1A(4)</h2>
+<h2>Solution 1D</h2>
 
 <p><code>$ curl -s -S -L http://dx.doi.org/10.7935/K5MW2F23 &gt;ex1A4.txt</code></p>
 
@@ -220,12 +220,12 @@ public data associated with DOIs.</p>
 <hr />
 
 <blockquote>
-<h2>Exercise 1A(5). Demonstrate that a DOI redirects to the landing page for an</h2>
+<h2>Exercise 1E. Demonstrate that a DOI redirects to the landing page for an</h2>
 
 <h2>associated digital object and retrieve the content of the landing page.</h2>
 
 <blockquote>
-<h2>Solution 1A(5)</h2>
+<h2>Solution 1E</h2>
 
 <p><code>$ curl -s -S -L http://dx.doi.org/10.1103/PhysRev.109.193 &gt;landing1.txt</code></p>
 
@@ -238,10 +238,10 @@ public data associated with DOIs.</p>
 <hr />
 
 <blockquote>
-<h2>Exercise 1A(6). Given a DOI, determine which Registration Agency issued it.</h2>
+<h2>Exercise 1F. Given a DOI, determine which Registration Agency issued it.</h2>
 
 <blockquote>
-<h2>Solution 1A(6)</h2>
+<h2>Solution 1F</h2>
 
 <p><code>$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101</code></p>
 
@@ -261,10 +261,10 @@ information.</p>
 <hr />
 
 <blockquote>
-<h2>Exercise 1A(7). Retrieve a list of DataCite members and determine the format of the data provided</h2>
+<h2>Exercise 1G. Retrieve a list of DataCite members and determine the format of the data provided</h2>
 
 <blockquote>
-<h2>Solution 1A(7)</h2>
+<h2>Solution 1G</h2>
 
 <p><code>$ curl -s -S http://api.datacite.org/members &gt;datacite.txt</code></p>
 
