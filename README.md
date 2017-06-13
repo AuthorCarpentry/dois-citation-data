@@ -8,7 +8,7 @@ Author Carpentry : Persistent access for research outputs with Digital Object Id
 **Lesson status: In Development, Piloted at CODATA-RDA Research Data Science
 Summer School, August 2016**
 
-## Learning Objectives:
+## What you will learn:
 
 * Recognize the essential role of Digital Object Identifiers for the scholarly web
 * List reasons to use DOIs 
