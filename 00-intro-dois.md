@@ -1,4 +1,4 @@
-#  Persistent Identifiers and Open Citations: Basic Building Blocks of the Scholarly Web 
+#  Persistent Identifiers and Open Citations: Basic Building Blocks of the Scholarly Web
 
 20 Minutes
 
@@ -7,7 +7,7 @@
 ## Learning Objectives
 
 * Recognize the essential role of Digital Object Identifiers for the scholarly web
-* List reasons to use DOIs 
+* List reasons to use DOIs
 * Identify components of a DOI
 * Apply basic curl commands to test and resolve DOIs for research objects
 * Explain how the DOI registration system is organized and what information it yields for authors
@@ -60,45 +60,47 @@ published, who has published it, under what conditions (with what funding,
 whether the work is available open access, whether the work has been updated
 since publication, and more.)
 
-We'll explore the anatomy of a DOI, how it is generated, and how to get 
+We'll explore the anatomy of a DOI, how it is generated, and how to get
 information about a DOI.
 
 ---
 
-> ## Exercise 1A. Demonstrate that a DOI redirects to a landing page for an
-> ## associated information resource.
->
-> > ## Solution 1A
-> >
-> > `$ curl -s -S http://dx.doi.org/10.1103/PhysRev.109.193`
-> > 
-> > `$ curl -s -S http://dx.doi.org/10.7935/K5H41PBP`
-> > 
-> > *Whose websites did the redirects for each DOI take you to?*
+## Exercise 1A. Demonstrate that a DOI redirects to a landing page for an
+## associated information resource.
+
+ ## Solution 1A
+
+```shell
+    curl -L \
+      http://dx.doi.org/10.1103/PhysRev.109.193
+    curl -L \
+          http://dx.doi.org/10.7935/K5H41PBP
+```
+Whose websites did the redirects for each DOI take you to?
 
 ---
 
-> ## Exercise 1B. Resolve a DOI to a landing page to confirm its validity,
-> ## and determine the title of the associated digital object.
->
-> > ## Solution 1B
-> >
-> > `$ curl  -s -S -L http://dx.doi.org/10.1103/PhysRevLett.116.061102 >redirect1.txt`
-> > 
-> > `$ grep "citation_title" redirect1.txt`
-> > 
-> > `$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP >redirect2.txt`
-> > 
-> > `$ grep "title" redirect2.txt`
+#### Exercise 1B. Resolve a DOI to a landing page to confirm its validity,
+## and determine the title of the associated digital object.
+
+#### Solution 1B
+
+$ curl  -s -S -L http://dx.doi.org/10.1103/PhysRevLett.116.061102 >redirect1.txt`
+
+$ grep "citation_title" redirect1.txt`
+
+$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP >redirect2.txt`
+
+$ grep "title" redirect2.txt`
 
 ---
 
 > ## Exercise 1C. Determine if a 'DOI-style string' is a valid DOI.
-> 
+>
 > > ## Solution 1C
-> > 
+> >
 > > `$ curl -s -S -L http://dx.doi.org/10.5454/JPSv1i220161014 | grep "title"`
-> > 
+> >
 > > Note: The faux DOI used in this example was assigned by an established
 > > publisher to detect and block unauthorized access to their system. The
 > > controversy surrounding publisher creation of DOI-like strings for business
@@ -110,19 +112,19 @@ information about a DOI.
 
 > ## Exercise 1D. Retrieve the landing page for a DOI object and "pretty
 > ## print" the output to something easier on the eyes.
-> 
+>
 > > ## Solution 1D
-> > 
+> >
 > > `$ curl -s -S -L http://dx.doi.org/10.7935/K5MW2F23 >ex1A4.txt`
-> > 
+> >
 > > `$ less ex1A4.txt`
 > >
 > > What format is the landing page provided in?
-> > 
+> >
 > > To make the retrieved data easier to read, remove the markup using the the Unix
 > > stream editor sed. A regular expression is used to represent all unwanted
 > > content between html brackets.
-> > 
+> >
 > > `$ sed -e 's/<[^>]*>//g' ex1A4.txt > ex1A4_pretty.txt`
 
 ## Anatomy of a DOI
@@ -133,7 +135,7 @@ resolved, and associated with valuable metadata including citation,
 availability of full text, funder information, licensing information, and more.
 The following components of the DOI System together make it work:
 
-+ The [International DOI Federation (IDF)](http://www.doi.org/doi_handbook/7_IDF.html) 
++ The [International DOI Federation (IDF)](http://www.doi.org/doi_handbook/7_IDF.html)
 is responsible for the overall governance of the system. IDF is a not-for-profit membership
 organization that oversees the operations of the federation of Registration
 Agencies which provide Digital Object Identifier (DOI) services and
@@ -150,7 +152,7 @@ given DOI resource, and offer public services for querying their databases. As
 an example, the Registration Agency CrossRef registers a range of metadata
 about scholarly resources including funding data, license associated with the
 digital object, author data including ORCiD numbers, and more -- see April
-Ondis' CrossRef Blog posting 
+Ondis' CrossRef Blog posting
 [Beyond the DOI to richer metadata](http://blog.crossref.org/2016/06/beyond-the-doi-to-richer-metadata.html)
 for more info about their services.
 + Registrants (or Members) of a given Registration Agency register DOIs for
@@ -174,23 +176,23 @@ lesson.
 
 > ## Exercise 1E. Demonstrate that a DOI redirects to the landing page for an
 > ## associated digital object and retrieve the content of the landing page.
-> 
+>
 > > ## Solution 1E
-> > 
+> >
 > > `$ curl -s -S -L http://dx.doi.org/10.1103/PhysRev.109.193 >landing1.txt`
-> > 
+> >
 > > `$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP >landing2.txt`
-> > 
+> >
 > > `$ wc landing*.txt`
 
 ---
 
 > ## Exercise 1F. Given a DOI, determine which Registration Agency issued it.
-> 
+>
 > > ## Solution 1F
-> > 
+> >
 > > `$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101`
-> > 
+> >
 > > `$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101,
 > > doi.crossref.org/doiRA/10.2307/1578389`
 > > Note that this handy lookup service is provided by one of the Registration
@@ -209,14 +211,14 @@ lesson.
 > > ## Solution 1G
 > >
 > > `$ curl -s -S http://api.datacite.org/members >datacite.txt`
-> > 
+> >
 > > `$ less datacite.txt`
 > > Note that the data comes from the Datacite API in JSON format (Javascript
 > > Object Notation) -- an increasingly popular metadata standard for Web
 > > services.
 > > JSON is great for machines to read, but not so much for humans! So let's
 > > convert it to something easier on the eyes.
-> > 
+> >
 > > `$ cat datacite.txt | tr ',' '\012' >datacite_pretty.txt`
 > > `$ less datacite_pretty.txt`
 
