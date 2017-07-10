@@ -6,11 +6,11 @@
 
 ## Learning Objectives
 
-* Recognize the essential role of Digital Object Identifiers for the scholarly web
+* Recognize the essential role of Digital Object Identifiers (DOIs) for the scholarly web
 * List reasons to use DOIs
 * Identify components of a DOI
-* Apply basic curl commands to test and resolve DOIs for research objects
-* Explain how the DOI registration system is organized and what information it yields for authors
+* Apply basic UNIX curl commands to test and resolve DOIs for research objects
+* Explain how the DOI registration system is organized and what information it yields for authors.
 
 ---
 
