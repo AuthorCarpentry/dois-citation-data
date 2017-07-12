@@ -16,8 +16,7 @@
 
 ## Introduction
 
-Digital Object Identifiers (DOIs) are unique names assigned to research outputs
-and other information resources that are represented in some way on the
+Digital Object Identifiers (DOIs) are unique names assigned to information resources (including research papers and datasets) that are represented in some way on the
 Internet. DOIs represent an established international information standard, ISO
 26324:2012, and many publishers, data centers, and other information providers
 rely on this standard to assign unique identifiers for works under their care.
@@ -33,8 +32,8 @@ landing page that offers information about the research object.  Often, but not
 always, the landing page contains a link to the resource itself. Where the
 resource is not online, the landing page indicates where to find it. For
 example, a DOI assigned to a physical resource such as a print book, a museum
-specimen, or a of scientific sample will specify the repository or collection
-where the resource resides.
+specimen, or a scientific sample will specify the repository or collection
+where that item resides.
 
 The DOI is NOT by itself a seal of quality. Yet information resources that are
 assigned DOIs tend to be of enduring value; are likely to be used and cited by
@@ -56,14 +55,29 @@ access; authentication requirements; software compatibility; etc.
 
 Nonetheless, the metadata associated with the DOI is rich enough to provide
 useful data for researchers. DOI metadata can tell alot about what has been
-published, who has published it, under what conditions (with what funding,
+published, who has published it, what works it cites, under what conditions the work was created and distributed (with what funding,
 whether the work is available open access, whether the work has been updated
 since publication, and more.)
 
-We'll explore the anatomy of a DOI, how it is generated, and how to get
-information about a DOI.
+In this session we'll explore the anatomy of a DOI, how it is generated, and how to retrieve the rich metadata associated with a given research object and its DOI.
+
+Finally, we will add to our command line repetoire by practicing a few new tools to help us acquire, examine, and use scholarly metadata available on the Web.
+- ```curl```: a unix command for transferring data from or to an Internet server without human interaction. We will use ```curl``` to retrieve data from a DOI database and to negotiate for data in the format most convenient for our use.
+- ```jq```: a command-line tool that allows us to parse data in JSON (Javascript Object Notation) format. JSON is great for machines to understand but looks like gobbleygook to most humans. We will use ```jq``` to 'pretty print' data we retrieve from the DOI database
+- ```pandoc```:a 'swiss-army knife' tool for converting a document in one markup format to another format. We will use ```pandoc``` to convert html data we retrieve with ```curl``` to a ```.docx``` format for clean reading and printing. (_NOTE_: In other AuthorCarpentry lessons, ```pandoc``` is used to convert markdown (```.md```) files into nicely typeset ```.pdf``` format for electronic and print.)
 
 ---
+##### Exercise 1a. Practice using ```curl```  to interact with a World Wide Web server and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.
+
+```$ curl http://thinkchecksubmit.org -o think.txt```  
+```$ less think.txt```
+
+What type of data format does this file represent?
+
+ ##### Exercise 1a. Practice using ```curl```  to interact with a World Wide Web server and retrieve a document from that site to a file. Then display the file on your terminal.
+
+
+
 
 ## Exercise 1A. Demonstrate that a DOI redirects to a landing page for an
 ## associated information resource.
