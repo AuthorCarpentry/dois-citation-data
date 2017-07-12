@@ -119,7 +119,7 @@ $less shen.bib
 - 10.7710/2162-3309.1133
 - 10.1503/cmaj.109-4889
 
-Challenge question: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?
+*Challenge question*: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?
 
 You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.    
 
