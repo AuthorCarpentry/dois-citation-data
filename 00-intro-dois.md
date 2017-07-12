@@ -97,9 +97,31 @@ TIP: _Feel free to send yourself a copy of this useful handout on how to assess 
     $jq . filename_from_previous_step >shen_pretty.json
 
 Now that you can read the file more easily, answer the following questions
-- is this article available open access or would you have to subscribe to the journal in order to read it?
+- what is the title of the document?
 - how many references does this article cite?
--
+
+##### Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.
+
+    $curl -LH -o shen_apa.txt "Accept:text/x-bibliography; style=apa" https://doi.org/10.1186.s12916-015-0469-2
+
+    $less shen_apa.txt
+
+
+##### Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex (e.g. the ORCiD researcher profile system and your funding agency's submission system). Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format.
+
+    $curl -LH -o shen.bib "Accept:application/x-bibtex" https://doi.org/10.1186.s12916-015-0469-2
+
+$less shen.bib
+
+##### Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. here are the DOIs for each paper:
+- 10.1126/science.342.6154.60
+- 10.3346/jkms.2017.32.5.713
+- 10.7710/2162-3309.1133
+- 10.1503/cmaj.109-4889
+
+Challenge question: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?
+
+You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.    
 
 
 
