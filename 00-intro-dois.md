@@ -71,14 +71,44 @@ Finally, we will add to our command line repetoire by practicing a few new tools
 - ```pandoc```:a 'swiss-army knife' tool for converting a document in one markup format to another format. We will use ```pandoc``` to convert html data we retrieve with ```curl``` to a ```.docx``` format for clean reading and printing. (_NOTE_: In other AuthorCarpentry lessons, ```pandoc``` is used to convert markdown (```.md```) files into nicely typeset ```.pdf``` format for electronic and print.)
 
 ---
-##### Exercise 1a. Practice using ```curl``` to interact with a World Wide Web server and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.
+##### Exercise 1a. Practice using ```curl``` to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.
 
-```$ curl http://thinkchecksubmit.org -o think.txt```  
+    $ curl http://thinkchecksubmit.org -o think.txt
+    $ less think.txt
+
+What is the format of the retrieved content? Change the file extension to reflect the format of this web document
+
+##### Exercise 1b. Convert the file into a clean format for reading or printing using ```pandoc```
+
+    $pandoc -o think.docx filename_from_previous_step
+
+Launch Open Office: how does the document look now? Will printing this document now look different than if you print it directly from the website?
+
+TIP: _Feel free to send yourself a copy of this useful handout on how to assess whether a journal is reputable or not_
+
+##### Exercise 2a. Practice using ```curl``` to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.
+
+    $curl -o shen.txt https://api.crossref.org/works/10.1186.s12916-015-0469-2
+    $ less shen.txt
+
+ What is the format of the retrieved content? Change the file extension to reflect the type of format this data is in.
+
+##### Exercise 2b. Use the jq tool to pretty print the file for easier human reading.
+    $jq . filename_from_previous_step >shen_pretty.json
+
+Now that you can read the file more easily, answer the following questions
+- is this article available open access or would you have to subscribe to the journal in order to read it?
+- how many references does this article cite?
+-
 
 
-What type of data format does this file represent?
 
- ##### Exercise 1a. Practice using ```curl```  to interact with a World Wide Web server and retrieve a document from that site to a file. Then display the file on your terminal.
+
+
+
+
+
+
 
 
 
