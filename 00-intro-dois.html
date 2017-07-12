@@ -29,25 +29,23 @@
 <h2>Learning Objectives</h2>
 
 <ul>
-<li>Recognize the essential role of Digital Object Identifiers for the scholarly web</li>
+<li>Recognize the essential role of Digital Object Identifiers (DOIs) for the scholarly web</li>
 <li>List reasons to use DOIs</li>
 <li>Identify components of a DOI</li>
-<li>Apply basic curl commands to test and resolve DOIs for research objects</li>
-<li>Explain how the DOI registration system is organized and what information it yields for authors</li>
+<li>Apply basic UNIX curl commands to test and resolve DOIs for research objects</li>
+<li>Explain how the DOI registration system is organized and what information it yields for authors.</li>
+<li>Practice basics of three command line tools useful for working with textual data from the World Wide Web:</li>
+<li><code>curl</code></li>
+<li><code>jq</code></li>
+<li><code>pandoc</code></li>
 </ul>
 
 <hr />
 
 <h2>Introduction</h2>
 
-<p>The scholarly web contains vast amounts of information about researchers and the contributions
-  they produce -- articles, proceedings, theses, books and chapters, datasets, software, algorithms, models, and more.
-  Part of the technical glue that connects researchers and their various contributions are unique persistent identifiers
-  that pinpoint a particular author or work on the Web in a way that supports both human readers and machine processes.
-  AuthorCarpentry lessons cover the two most prominent unique identifiers used on the Web: the Online Researcher Contributor iD, or ORCiD, for researchers and the Digital Object identifier (DOI) for works.
-<p>Digital Object Identifiers (DOIs) are unique identifiers assigned to research contributions
-and other information resources that are represented in some way on the
-Web. DOIs represent an established international information standard, ISO
+<p>Digital Object Identifiers (DOIs) are unique names assigned to information resources (including research papers and datasets) that are represented in some way on the
+Internet. DOIs represent an established international information standard, ISO
 26324:2012, and many publishers, data centers, and other information providers
 rely on this standard to assign unique identifiers for works under their care.
 The DOI assigned to a given research object distinguishes it from other works,
@@ -62,8 +60,8 @@ landing page that offers information about the research object.  Often, but not
 always, the landing page contains a link to the resource itself. Where the
 resource is not online, the landing page indicates where to find it. For
 example, a DOI assigned to a physical resource such as a print book, a museum
-specimen, or a of scientific sample will specify the repository or collection
-where the resource resides.</p>
+specimen, or a scientific sample will specify the repository or collection
+where that item resides.</p>
 
 <p>The DOI is NOT by itself a seal of quality. Yet information resources that are
 assigned DOIs tend to be of enduring value; are likely to be used and cited by
@@ -85,50 +83,109 @@ access; authentication requirements; software compatibility; etc.</p>
 
 <p>Nonetheless, the metadata associated with the DOI is rich enough to provide
 useful data for researchers. DOI metadata can tell alot about what has been
-published, who has published it, under what conditions (with what funding,
+published, who has published it, what works it cites, under what conditions the work was created and distributed (with what funding,
 whether the work is available open access, whether the work has been updated
 since publication, and more.)</p>
 
-<p>We&rsquo;ll explore the anatomy of a DOI, how it is generated, and how to get
-information about a DOI.</p>
+<p>In this session we&rsquo;ll explore the anatomy of a DOI, how it is generated, and how to retrieve the rich metadata associated with a given research object and its DOI.</p>
+
+<p>Finally, we will add to our command line repetoire by practicing a few new tools to help us acquire, examine, and use scholarly metadata available on the Web.
+- <code>curl</code>: a unix command for transferring data from or to an Internet server without human interaction. We will use <code>curl</code> to retrieve data from a DOI database and to negotiate for data in the format most convenient for our use.
+- <code>jq</code>: a command-line tool that allows us to parse data in JSON (Javascript Object Notation) format. JSON is great for machines to understand but looks like gobbleygook to most humans. We will use <code>jq</code> to &lsquo;pretty print&rsquo; data we retrieve from the DOI database
+- <code>pandoc</code>:a &lsquo;swiss-army knife&rsquo; tool for converting a document in one markup format to another format. We will use <code>pandoc</code> to convert html data we retrieve with <code>curl</code> to a <code>.docx</code> format for clean reading and printing. (<em>NOTE</em>: In other AuthorCarpentry lessons, <code>pandoc</code> is used to convert markdown (<code>.md</code>) files into nicely typeset <code>.pdf</code> format for electronic and print.)</p>
 
 <hr />
 
-<blockquote>
+<h5>Exercise 1a. Practice using <code>curl</code> to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.</h5>
+
+<pre><code>$ curl http://thinkchecksubmit.org -o think.txt
+$ less think.txt
+</code></pre>
+
+<p>What is the format of the retrieved content? Change the file extension to reflect the format of this web document</p>
+
+<h5>Exercise 1b. Convert the file into a clean format for reading or printing using <code>pandoc</code></h5>
+
+<pre><code>$pandoc -o think.docx filename_from_previous_step
+</code></pre>
+
+<p>Launch Open Office: how does the document look now? Will printing this document now look different than if you print it directly from the website?</p>
+
+<p>TIP: <em>Feel free to send yourself a copy of this useful handout on how to assess whether a journal is reputable or not</em></p>
+
+<h5>Exercise 2a. Practice using <code>curl</code> to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.</h5>
+
+<pre><code>$curl -o shen.txt https://api.crossref.org/works/10.1186.s12916-015-0469-2
+$ less shen.txt
+</code></pre>
+
+<p>What is the format of the retrieved content? Change the file extension to reflect the type of format this data is in.</p>
+
+<h5>Exercise 2b. Use the jq tool to pretty print the file for easier human reading.</h5>
+
+<pre><code>$jq . filename_from_previous_step &gt;shen_pretty.json
+</code></pre>
+
+<p>Now that you can read the file more easily, answer the following questions
+- what is the title of the document?
+- how many references does this article cite?</p>
+
+<h5>Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.</h5>
+
+<pre><code>$curl -LH -o shen_apa.txt &quot;Accept:text/x-bibliography; style=apa&quot; https://doi.org/10.1186.s12916-015-0469-2
+
+$less shen_apa.txt
+</code></pre>
+
+<h5>Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex (e.g. the ORCiD researcher profile system and your funding agency&rsquo;s submission system). Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format.</h5>
+
+<pre><code>$curl -LH -o shen.bib &quot;Accept:application/x-bibtex&quot; https://doi.org/10.1186.s12916-015-0469-2
+</code></pre>
+
+<p>$less shen.bib</p>
+
+<h5>Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. here are the DOIs for each paper:</h5>
+
+<ul>
+<li>10.1126/science.342.6154.60</li>
+<li>10.3346/jkms.2017.32.5.713</li>
+<li>10.<sup>7710</sup>&frasl;<sub>2162</sub>-3309.1133</li>
+<li>10.1503/cmaj.109-4889</li>
+</ul>
+
+<p>Challenge question: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?</p>
+
+<p>You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.</p>
+
 <h2>Exercise 1A. Demonstrate that a DOI redirects to a landing page for an</h2>
 
 <h2>associated information resource.</h2>
 
-<blockquote>
-<h2>Solution 1A</h2>
+<p>## Solution 1A</p>
 
-<p><code>$ curl -s -S http://dx.doi.org/10.1103/PhysRev.109.193</code></p>
+<pre><code class="language-shell">    curl -L \
+      http://dx.doi.org/10.1103/PhysRev.109.193
+    curl -L \
+          http://dx.doi.org/10.7935/K5H41PBP
+</code></pre>
 
-<p><code>$ curl -s -S http://dx.doi.org/10.7935/K5H41PBP</code></p>
-
-<p><em>Whose websites did the redirects for each DOI take you to?</em></p>
-</blockquote>
-</blockquote>
+<p>Whose websites did the redirects for each DOI take you to?</p>
 
 <hr />
 
-<blockquote>
-<h2>Exercise 1B. Resolve a DOI to a landing page to confirm its validity,</h2>
+<h4>Exercise 1B. Resolve a DOI to a landing page to confirm its validity,</h4>
 
 <h2>and determine the title of the associated digital object.</h2>
 
-<blockquote>
-<h2>Solution 1B</h2>
+<h4>Solution 1B</h4>
 
-<p><code>$ curl  -s -S -L http://dx.doi.org/10.1103/PhysRevLett.116.061102 &gt;redirect1.txt</code></p>
+<p>$ curl  -s -S -L <a href="http://dx.doi.org/10.1103/PhysRevLett.116.061102">http://dx.doi.org/10.1103/PhysRevLett.116.061102</a> &gt;redirect1.txt`</p>
 
-<p><code>$ grep &quot;citation_title&quot; redirect1.txt</code></p>
+<p>$ grep &ldquo;citation_title&rdquo; redirect1.txt`</p>
 
-<p><code>$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP &gt;redirect2.txt</code></p>
+<p>$ curl -s -S -L <a href="http://dx.doi.org/10.7935/K5H41PBP">http://dx.doi.org/10.7935/K5H41PBP</a> &gt;redirect2.txt`</p>
 
-<p><code>$ grep &quot;title&quot; redirect2.txt</code></p>
-</blockquote>
-</blockquote>
+<p>$ grep &ldquo;title&rdquo; redirect2.txt`</p>
 
 <hr />
 
