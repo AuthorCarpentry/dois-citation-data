@@ -12,9 +12,9 @@
 * Apply basic UNIX curl commands to test and resolve DOIs for research objects
 * Explain how the DOI registration system is organized and what information it yields for authors.
 * Practice basics of three command line tools useful for working with textual data from the World Wide Web:
-- ```curl```
-- ```jq```
-- ```pandoc```
+    - `curl`
+    - `jq`
+    - `pandoc`
 
 ---
 
@@ -66,40 +66,48 @@ since publication, and more.)
 In this session we'll explore the anatomy of a DOI, how it is generated, and how to retrieve the rich metadata associated with a given research object and its DOI.
 
 Finally, we will add to our command line repetoire by practicing a few new tools to help us acquire, examine, and use scholarly metadata available on the Web.
-- ```curl```: a unix command for transferring data from or to an Internet server without human interaction. We will use ```curl``` to retrieve data from a DOI database and to negotiate for data in the format most convenient for our use.
-- ```jq```: a command-line tool that allows us to parse data in JSON (Javascript Object Notation) format. JSON is great for machines to understand but looks like gobbleygook to most humans. We will use ```jq``` to 'pretty print' data we retrieve from the DOI database
-- ```pandoc```:a 'swiss-army knife' tool for converting a document in one markup format to another format. We will use ```pandoc``` to convert html data we retrieve with ```curl``` to a ```.docx``` format for clean reading and printing. (_NOTE_: In other AuthorCarpentry lessons, ```pandoc``` is used to convert markdown (```.md```) files into nicely typeset ```.pdf``` format for electronic and print.)
+
+- `curl`: a unix command for transferring data from or to an Internet server without human interaction. We will use `curl` to retrieve data from a DOI database and to negotiate for data in the format most convenient for our use.
+- `jq`: a command-line tool that allows us to parse data in JSON (Javascript Object Notation) format. JSON is great for machines to understand but looks like gobbleygook to most humans. We will use `jq` to 'pretty print' data we retrieve from the DOI database
+- `pandoc`: a 'swiss-army knife' tool for converting a document in one markup format to another format. We will use `pandoc` to convert html data we retrieve with `curl` to a `.docx` format for clean reading and printing. (_NOTE_: In other AuthorCarpentry lessons, `pandoc` is used to convert markdown (`.md`) files into nicely typeset `.pdf` format for electronic and print.)
 
 ---
-##### Exercise 1a. Practice using ```curl``` to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.
 
-    $ curl http://thinkchecksubmit.org -o think.txt
-    $ less think.txt
+> ## Exercise 1a. Practice using `curl` to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.
+>
+> > `$ curl http://thinkchecksubmit.org -o think.txt`
+> > `$ less think.txt`
 
 What is the format of the retrieved content? Change the file extension to reflect the format of this web document
 
-##### Exercise 1b. Convert the file into a clean format for reading or printing using ```pandoc```
-
-    $pandoc -o think.docx filename_from_previous_step
+> ## Exercise 1b. Convert the file into a clean format for reading or printing using `pandoc`
+>
+> > `$pandoc -o think.docx filename_from_previous_step`
+>
 
 Launch Open Office: how does the document look now? Will printing this document now look different than if you print it directly from the website?
 
 TIP: _Feel free to send yourself a copy of this useful handout on how to assess whether a journal is reputable or not_
 
-##### Exercise 2a. Practice using ```curl``` to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.
+---
 
-    $curl -o shen.txt https://api.crossref.org/works/10.1186.s12916-015-0469-2
-    $ less shen.txt
+> ## Exercise 2a. Practice using `curl` to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.
+>
+> > `$curl -o shen.txt
+> > https://api.crossref.org/works/10.1186.s12916-015-0469-2`
+> > `$ less shen.txt`
 
  What is the format of the retrieved content? Change the file extension to reflect the type of format this data is in.
 
-##### Exercise 2b. Use the jq tool to pretty print the file for easier human reading.
-    $jq . filename_from_previous_step >shen_pretty.json
+> ## Exercise 2b. Use the jq tool to pretty print the file for easier human reading.
+>
+> > `$jq . filename_from_previous_step >shen_pretty.json`
 
 Now that you can read the file more easily, answer the following questions
 - what is the title of the document?
 - how many references does this article cite?
 
+<<<<<<< HEAD
 ##### Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.
 
     $curl -LH -o shen_apa.txt "Accept:text/x-bibliography; style=apa" https://doi.org/10.1186.s12916-015-0469-2
@@ -148,26 +156,62 @@ You just need the citation, not the entire metadata record for this research obj
 ```
 Whose websites did the redirects for each DOI take you to?
 
+=======
+>>>>>>> 09b2e6276de10e100175de4514bcb448e0aba30c
 ---
-
-#### Exercise 1B. Resolve a DOI to a landing page to confirm its validity,
-## and determine the title of the associated digital object.
-
-#### Solution 1B
-
-$ curl  -s -S -L http://dx.doi.org/10.1103/PhysRevLett.116.061102 >redirect1.txt`
-
-$ grep "citation_title" redirect1.txt`
-
-$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP >redirect2.txt`
-
-$ grep "title" redirect2.txt`
-
----
-
-> ## Exercise 1C. Determine if a 'DOI-style string' is a valid DOI.
+> ## Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.
 >
-> > ## Solution 1C
+> > `$curl -LH -o shen_apa.txt "Accept:text/x-bibliography; style=apa"
+> > https://doi.org/10.1186.s12916-015-0469-2`
+> >
+> > `$less shen_apa.txt`
+
+> ## Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex (e.g. the ORCiD researcher profile system and your funding agency's submission system). Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format.
+>
+> > `$curl -LH -o shen.bib "Accept:application/x-bibtex"
+> > https://doi.org/10.1186.s12916-015-0469-2`
+> >
+> > `$less shen.bib`
+
+> ## Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:
+>
+> ```shell
+> - 10.1126/science.342.6154.60
+> - 10.3346/jkms.2017.32.5.713
+> - 10.7710/2162-3309.1133
+> - 10.1503/cmaj.109-4889
+> ```
+>
+> Challenge question: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?
+>
+
+---
+> ## Exercise 4A. Demonstrate that a DOI redirects to a landing page for an associated information resource.
+>
+>
+>
+> ```shell
+>    curl -L http://dx.doi.org/10.1103/PhysRev.109.193
+>    curl -L http://dx.doi.org/10.7935/K5H41PBP
+> ```
+>
+> Whose websites did the redirects for each DOI take you to?
+
+> ## Exercise 4B. Resolve a DOI to a landing page to confirm its validity, and determine the title of the associated digital object.
+>
+> > ## Solution 4B
+> >
+> > `$ curl  -s -S -L http://dx.doi.org/10.1103/PhysRevLett.116.061102 >redirect1.txt`
+> >
+> > `$ grep "citation_title" redirect1.txt`
+> >
+> > `$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP >redirect2.txt`
+> >
+> > `$ grep "title" redirect2.txt`
+
+> ## Exercise 4C. Determine if a 'DOI-style string' is a valid DOI.
+>
+> > ## Solution 4C
 > >
 > > `$ curl -s -S -L http://dx.doi.org/10.5454/JPSv1i220161014 | grep "title"`
 > >
@@ -178,12 +222,9 @@ $ grep "title" redirect2.txt`
 > > like strings and fake DOIs]
 > > (http://blog.crossref.org/2016/06/doi-like-strings-and-fake-dois.html).
 
----
-
-> ## Exercise 1D. Retrieve the landing page for a DOI object and "pretty
-> ## print" the output to something easier on the eyes.
+> ## Exercise 4D. Retrieve the landing page for a DOI object and "pretty print" the output to something easier on the eyes.
 >
-> > ## Solution 1D
+> > ## Solution 4D
 > >
 > > `$ curl -s -S -L http://dx.doi.org/10.7935/K5MW2F23 >ex1A4.txt`
 > >
@@ -244,10 +285,10 @@ lesson.
 
 ---
 
-> ## Exercise 1E. Demonstrate that a DOI redirects to the landing page for an
+> ## Exercise 5A. Demonstrate that a DOI redirects to the landing page for an
 > ## associated digital object and retrieve the content of the landing page.
 >
-> > ## Solution 1E
+> > ## Solution 5A
 > >
 > > `$ curl -s -S -L http://dx.doi.org/10.1103/PhysRev.109.193 >landing1.txt`
 > >
@@ -255,11 +296,9 @@ lesson.
 > >
 > > `$ wc landing*.txt`
 
----
-
-> ## Exercise 1F. Given a DOI, determine which Registration Agency issued it.
+> ## Exercise 5B. Given a DOI, determine which Registration Agency issued it.
 >
-> > ## Solution 1F
+> > ## Solution 5B
 > >
 > > `$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101`
 > >
@@ -274,11 +313,9 @@ lesson.
 > > researchers may wish to check with more than one RA to get useful
 > > information.
 
----
-
-> ## Exercise 1G. Retrieve a list of DataCite members and determine the format of the data provided
+> ## Exercise 5C. Retrieve a list of DataCite members and determine the format of the data provided
 >
-> > ## Solution 1G
+> > ## Solution 5C
 > >
 > > `$ curl -s -S http://api.datacite.org/members >datacite.txt`
 > >
