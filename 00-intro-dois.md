@@ -11,6 +11,10 @@
 * Identify components of a DOI
 * Apply basic UNIX curl commands to test and resolve DOIs for research objects
 * Explain how the DOI registration system is organized and what information it yields for authors.
+* Practice basics of three command line tools useful for working with textual data from the World Wide Web:
+- ```curl```
+- ```jq```
+- ```pandoc```
 
 ---
 
@@ -67,10 +71,10 @@ Finally, we will add to our command line repetoire by practicing a few new tools
 - ```pandoc```:a 'swiss-army knife' tool for converting a document in one markup format to another format. We will use ```pandoc``` to convert html data we retrieve with ```curl``` to a ```.docx``` format for clean reading and printing. (_NOTE_: In other AuthorCarpentry lessons, ```pandoc``` is used to convert markdown (```.md```) files into nicely typeset ```.pdf``` format for electronic and print.)
 
 ---
-##### Exercise 1a. Practice using ```curl```  to interact with a World Wide Web server and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.
+##### Exercise 1a. Practice using ```curl``` to interact with a World Wide Web server and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.
 
 ```$ curl http://thinkchecksubmit.org -o think.txt```  
-```$ less think.txt```
+
 
 What type of data format does this file represent?
 

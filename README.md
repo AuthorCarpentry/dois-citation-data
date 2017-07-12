@@ -6,12 +6,12 @@ Author Carpentry : Persistent access for research outputs with Digital Object Id
 *Lesson Maintainers: Gail Clement, Tom Morrell*
 
 **Lesson status: Active**
-  * Taught at CDOATA-RDA Research Data Science Summer School, July 10-17, 2017
-   * Piloted at CODATA-RDA Research Data Science Summer School, August 2-16, 2016
+  * Taught at [CODATA-RDA Research Data Science Summer School, July 10-17, 2017](http://indico.ictp.it/event/7974/) and the [Force11 Scholarly Communication Institute, August 1-4, 2017](https://www.force11.org/node/7786/#wt3)
+   * Piloted at [CODATA-RDA Research Data Science Summer School, August 2-16, 2016](http://indico.ictp.it/event/7658/)
 
 ## What you will learn:
 
-* Recognize the essential role of Digital Object Identifiers for the scholarly web
+* Recognize the essential role of Digital Object Identifiers as building blocks on the scholarly web
 * List reasons to use DOIs
 * Identify components of a DOI
 * Apply basic UNIX curl commands to test and resolve DOIs for research objects
@@ -20,7 +20,10 @@ Author Carpentry : Persistent access for research outputs with Digital Object Id
 * Create appropriate metadata to describe a new work and mint a DOI for it
 * Retrieve the metadata associated with a DOI
 * Apply content negotiation commands to obtain a citation for a given DOI in a preferred style (e.g. BibTeX  or APA) from the CrossRef API
-* Gain experience with Bash command line tools to concatenate the citations into a single BibTeX publication list for reuse
+* Gain experience with command line tools to:
+- parse DOI metadata in JSON (Javascript Object Notation) format;
+- convert documents in one markup format to another format
+- concatenate  citations into a single BibTeX publication list for reuse in other researcher systems (ORCiD; MySciEnCV; Latex)
 
 ## Topics:
 
@@ -45,6 +48,8 @@ You'll need to have a bash shell installed, you can follow
 
 Your computer will also need to have running the open source json parsing tool, jQuery, available at:
  [jq json parser](https://stedolan.github.io/jq/) to be able to 'pretty print' json data retrieved from API services
+and pandoc, the universal document converter, available at:
+[pandoc](https://pandoc.org/).
 
 ## Cheat Sheet
 jQuery (jq) Quick API Reference, https://oscarotero.com/jquery/
@@ -64,3 +69,4 @@ National Data Service, http://www.ands.org.au/guides/doi
 + DOI Citation Formatter beta, http://crosscite.org/citeproc/
 + jq online testing tool, https://jqplay.org/
 + Parsing JSON with jq, http://www.compciv.org/recipes/cli/jq-for-parsing-json/
++ Pandoc User Manual, http://pandoc.org/MANUAL.html
