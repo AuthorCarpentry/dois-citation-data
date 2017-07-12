@@ -10,8 +10,6 @@ Author Carpentry : Persistent access for research outputs with Digital Object Id
   * Taught at [CODATA-RDA Research Data Science Summer School, July 10-17, 2017](http://indico.ictp.it/event/7974/) and the [Force11 Scholarly Communication Institute, August 1-4, 2017](https://www.force11.org/node/7786/#wt3)
   * Piloted at [CODATA-RDA Research Data Science Summer School, August 2-16, 2016](http://indico.ictp.it/event/7658/)
 
-Testing
-
 ## What you will learn:
 
 * Recognize the essential role of Digital Object Identifiers as building blocks on the scholarly web
