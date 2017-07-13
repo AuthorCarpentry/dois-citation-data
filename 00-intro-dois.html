@@ -151,7 +151,52 @@ https://api.crossref.org/works/10.1186.s12916-015-0469-2</code>
 - what is the title of the document?
 - how many references does this article cite?</p>
 
-<hr />
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+
+<h5>Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.</h5>
+
+<pre><code>$curl -LH -o shen_apa.txt &quot;Accept:text/x-bibliography; style=apa&quot; https://doi.org/10.1186.s12916-015-0469-2
+
+$less shen_apa.txt
+</code></pre>
+
+<h5>Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex.  (For example, the ORCiD researcher profile system and certain funding agency&rsquo;s submission system accespt bibtex citations). Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format.</h5>
+
+<pre><code>$curl -LH -o shen.bib &quot;Accept:application/x-bibtex&quot; https://doi.org/10.1186.s12916-015-0469-2
+</code></pre>
+
+<p>$less shen.bib</p>
+
+<h5>Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:</h5>
+
+<ul>
+<li>10.1126/science.342.6154.60</li>
+<li>10.3346/jkms.2017.32.5.713</li>
+<li>10.<sup>7710</sup>&frasl;<sub>2162</sub>-3309.1133</li>
+<li>10.1503/cmaj.109-4889</li>
+</ul>
+
+<p><em>Challenge question</em>: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?</p>
+
+<p>You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.</p>
+
+<h2>Exercise 1A. Demonstrate that a DOI redirects to a landing page for an</h2>
+
+<h2>associated information resource.</h2>
+
+<p>## Solution 1A</p>
+
+<pre><code class="language-shell">    curl -L \
+      http://dx.doi.org/10.1103/PhysRev.109.193
+    curl -L \
+          http://dx.doi.org/10.7935/K5H41PBP
+</code></pre>
+
+<p>Whose websites did the redirects for each DOI take you to?</p>
+
+<p>=======</p>
+
+<h2>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 09b2e6276de10e100175de4514bcb448e0aba30c</h2>
 
 <blockquote>
 <h2>Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.</h2>

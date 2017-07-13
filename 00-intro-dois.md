@@ -74,16 +74,15 @@ Finally, we will add to our command line repetoire by practicing a few new tools
 ---
 
 > ## Exercise 1a. Practice using `curl` to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.
->
-> > `$ curl http://thinkchecksubmit.org -o think.txt`
-> > `$ less think.txt`
+
+    $ curl http://thinkchecksubmit.org -o think.txt
+    $ less think.txt
 
 What is the format of the retrieved content? Change the file extension to reflect the format of this web document
 
-> ## Exercise 1b. Convert the file into a clean format for reading or printing using `pandoc`
->
-> > `$pandoc -o think.docx filename_from_previous_step`
->
+## Exercise 1b. Convert the file into a clean format for reading or printing using `pandoc`
+
+    $pandoc -o think.docx filename_from_previous_step
 
 Launch Open Office: how does the document look now? Will printing this document now look different than if you print it directly from the website?
 
@@ -91,23 +90,21 @@ TIP: _Feel free to send yourself a copy of this useful handout on how to assess 
 
 ---
 
-> ## Exercise 2a. Practice using `curl` to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.
->
-> > `$curl -o shen.txt
-> > https://api.crossref.org/works/10.1186.s12916-015-0469-2`
-> > `$ less shen.txt`
+## Exercise 2a. Practice using `curl` to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.
+
+    $curl -o shen.txt https://api.crossref.org/works/10.1186.s12916-015-0469-2`
+    $ less shen.txt
 
  What is the format of the retrieved content? Change the file extension to reflect the type of format this data is in.
 
-> ## Exercise 2b. Use the jq tool to pretty print the file for easier human reading.
->
-> > `$jq . filename_from_previous_step >shen_pretty.json`
+## Exercise 2b. Use the jq tool to pretty print the file for easier human reading.
+
+    $jq . filename_from_previous_step >shen_pretty.json
 
 Now that you can read the file more easily, answer the following questions
 - what is the title of the document?
 - how many references does this article cite?
 
-<<<<<<< HEAD
 ##### Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.
 
     $curl -LH -o shen_apa.txt "Accept:text/x-bibliography; style=apa" https://doi.org/10.1186.s12916-015-0469-2
@@ -115,13 +112,14 @@ Now that you can read the file more easily, answer the following questions
     $less shen_apa.txt
 
 
-##### Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex (e.g. the ORCiD researcher profile system and your funding agency's submission system). Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format.
+##### Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex.  Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format.
+(For example, the ORCiD researcher profile system and certain funding agencyies' submission systems accespt bibtex citations).
 
     $curl -LH -o shen.bib "Accept:application/x-bibtex" https://doi.org/10.1186.s12916-015-0469-2
 
 $less shen.bib
 
-##### Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. here are the DOIs for each paper:
+##### Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:
 - 10.1126/science.342.6154.60
 - 10.3346/jkms.2017.32.5.713
 - 10.7710/2162-3309.1133
@@ -129,114 +127,6 @@ $less shen.bib
 
 *Challenge question*: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?
 
-You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.    
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 1A. Demonstrate that a DOI redirects to a landing page for an
-## associated information resource.
-
- ## Solution 1A
-
-```shell
-    curl -L \
-      http://dx.doi.org/10.1103/PhysRev.109.193
-    curl -L \
-          http://dx.doi.org/10.7935/K5H41PBP
-```
-Whose websites did the redirects for each DOI take you to?
-
-=======
->>>>>>> 09b2e6276de10e100175de4514bcb448e0aba30c
----
-> ## Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.
->
-> > `$curl -LH -o shen_apa.txt "Accept:text/x-bibliography; style=apa"
-> > https://doi.org/10.1186.s12916-015-0469-2`
-> >
-> > `$less shen_apa.txt`
-
-> ## Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex (e.g. the ORCiD researcher profile system and your funding agency's submission system). Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format.
->
-> > `$curl -LH -o shen.bib "Accept:application/x-bibtex"
-> > https://doi.org/10.1186.s12916-015-0469-2`
-> >
-> > `$less shen.bib`
-
-> ## Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:
->
-> ```shell
-> - 10.1126/science.342.6154.60
-> - 10.3346/jkms.2017.32.5.713
-> - 10.7710/2162-3309.1133
-> - 10.1503/cmaj.109-4889
-> ```
->
-> Challenge question: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?
->
-
----
-> ## Exercise 4A. Demonstrate that a DOI redirects to a landing page for an associated information resource.
->
->
->
-> ```shell
->    curl -L http://dx.doi.org/10.1103/PhysRev.109.193
->    curl -L http://dx.doi.org/10.7935/K5H41PBP
-> ```
->
-> Whose websites did the redirects for each DOI take you to?
-
-> ## Exercise 4B. Resolve a DOI to a landing page to confirm its validity, and determine the title of the associated digital object.
->
-> > ## Solution 4B
-> >
-> > `$ curl  -s -S -L http://dx.doi.org/10.1103/PhysRevLett.116.061102 >redirect1.txt`
-> >
-> > `$ grep "citation_title" redirect1.txt`
-> >
-> > `$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP >redirect2.txt`
-> >
-> > `$ grep "title" redirect2.txt`
-
-> ## Exercise 4C. Determine if a 'DOI-style string' is a valid DOI.
->
-> > ## Solution 4C
-> >
-> > `$ curl -s -S -L http://dx.doi.org/10.5454/JPSv1i220161014 | grep "title"`
-> >
-> > Note: The faux DOI used in this example was assigned by an established
-> > publisher to detect and block unauthorized access to their system. The
-> > controversy surrounding publisher creation of DOI-like strings for business
-> > operations was taken up in an interesting posting on the CrossRef blog, [DOI
-> > like strings and fake DOIs]
-> > (http://blog.crossref.org/2016/06/doi-like-strings-and-fake-dois.html).
-
-> ## Exercise 4D. Retrieve the landing page for a DOI object and "pretty print" the output to something easier on the eyes.
->
-> > ## Solution 4D
-> >
-> > `$ curl -s -S -L http://dx.doi.org/10.7935/K5MW2F23 >ex1A4.txt`
-> >
-> > `$ less ex1A4.txt`
-> >
-> > What format is the landing page provided in?
-> >
-> > To make the retrieved data easier to read, remove the markup using the the Unix
-> > stream editor sed. A regular expression is used to represent all unwanted
-> > content between html brackets.
-> >
-> > `$ sed -e 's/<[^>]*>//g' ex1A4.txt > ex1A4_pretty.txt`
 
 ## Anatomy of a DOI
 
