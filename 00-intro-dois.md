@@ -21,8 +21,7 @@
 ## Introduction
 
 Digital Object Identifiers (DOIs) are unique names assigned to information resources (including research papers and datasets) that are represented in some way on the
-Internet. DOIs represent an established international information standard, ISO
-26324:2012, and many publishers, data centers, and other information providers
+Internet. DOIs represent an established international information standard, ISO26324:2012, and many publishers, data centers, and other information providers
 rely on this standard to assign unique identifiers for works under their care.
 The DOI assigned to a given research object distinguishes it from other works,
 including other versions of the same intellectual material. Examples of
@@ -73,14 +72,14 @@ Finally, we will add to our command line repetoire by practicing a few new tools
 
 ---
 
-> ## Exercise 1a. Practice using `curl` to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.
+### Exercise 1a. Practice using `curl` to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.
 
     $ curl http://thinkchecksubmit.org -o think.txt
     $ less think.txt
 
 What is the format of the retrieved content? Change the file extension to reflect the format of this web document
 
-## Exercise 1b. Convert the file into a clean format for reading or printing using `pandoc`
+### Exercise 1b. Convert the file into a clean format for reading or printing using `pandoc`
 
     $pandoc -o think.docx filename_from_previous_step
 
@@ -90,14 +89,14 @@ TIP: _Feel free to send yourself a copy of this useful handout on how to assess 
 
 ---
 
-## Exercise 2a. Practice using `curl` to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.
+### Exercise 2a. Practice using `curl` to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.
 
     $curl -o shen.txt https://api.crossref.org/works/10.1186.s12916-015-0469-2`
     $ less shen.txt
 
  What is the format of the retrieved content? Change the file extension to reflect the type of format this data is in.
 
-## Exercise 2b. Use the jq tool to pretty print the file for easier human reading.
+### Exercise 2b. Use the jq tool to pretty print the file for easier human reading.
 
     $jq . filename_from_previous_step >shen_pretty.json
 
@@ -105,28 +104,31 @@ Now that you can read the file more easily, answer the following questions
 - what is the title of the document?
 - how many references does this article cite?
 
-##### Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.
+---
+
+### Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.
 
     $curl -LH -o shen_apa.txt "Accept:text/x-bibliography; style=apa" https://doi.org/10.1186.s12916-015-0469-2
 
     $less shen_apa.txt
 
 
-##### Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex.  Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format.
+### Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex.  Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format.
 (For example, the ORCiD researcher profile system and certain funding agencyies' submission systems accespt bibtex citations).
 
     $curl -LH -o shen.bib "Accept:application/x-bibtex" https://doi.org/10.1186.s12916-015-0469-2
 
-$less shen.bib
+    $less shen.bib
 
-##### Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:
+### Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:
 - 10.1126/science.342.6154.60
 - 10.3346/jkms.2017.32.5.713
-- 10.7710/2162-3309.1133
 - 10.1503/cmaj.109-4889
+---
 
 *Challenge question*: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?
 
+---
 
 ## Anatomy of a DOI
 
@@ -172,52 +174,6 @@ data for a researcher. We'll look at this data throughout the rest of the
 lesson.
 
 <img src="img/Figure1.jpg" alt="Anatomy of a DOI" width="666" height ="371">
-
----
-
-> ## Exercise 5A. Demonstrate that a DOI redirects to the landing page for an
-> ## associated digital object and retrieve the content of the landing page.
->
-> > ## Solution 5A
-> >
-> > `$ curl -s -S -L http://dx.doi.org/10.1103/PhysRev.109.193 >landing1.txt`
-> >
-> > `$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP >landing2.txt`
-> >
-> > `$ wc landing*.txt`
-
-> ## Exercise 5B. Given a DOI, determine which Registration Agency issued it.
->
-> > ## Solution 5B
-> >
-> > `$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101`
-> >
-> > `$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101,
-> > doi.crossref.org/doiRA/10.2307/1578389`
-> > Note that this handy lookup service is provided by one of the Registration
-> > Agencies, CrossRef, yet the query also works for DOIs issued by other
-> > Registration Agencies! This demonstrates that each DOI Agency provides an
-> > array
-> > of services beyond registering and maintaining DOIs for their members;
-> > savvy
-> > researchers may wish to check with more than one RA to get useful
-> > information.
-
-> ## Exercise 5C. Retrieve a list of DataCite members and determine the format of the data provided
->
-> > ## Solution 5C
-> >
-> > `$ curl -s -S http://api.datacite.org/members >datacite.txt`
-> >
-> > `$ less datacite.txt`
-> > Note that the data comes from the Datacite API in JSON format (Javascript
-> > Object Notation) -- an increasingly popular metadata standard for Web
-> > services.
-> > JSON is great for machines to read, but not so much for humans! So let's
-> > convert it to something easier on the eyes.
-> >
-> > `$ cat datacite.txt | tr ',' '\012' >datacite_pretty.txt`
-> > `$ less datacite_pretty.txt`
 
 ---
 

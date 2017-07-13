@@ -48,8 +48,7 @@
 <h2>Introduction</h2>
 
 <p>Digital Object Identifiers (DOIs) are unique names assigned to information resources (including research papers and datasets) that are represented in some way on the
-Internet. DOIs represent an established international information standard, ISO
-26324:2012, and many publishers, data centers, and other information providers
+Internet. DOIs represent an established international information standard, ISO26324:2012, and many publishers, data centers, and other information providers
 rely on this standard to assign unique identifiers for works under their care.
 The DOI assigned to a given research object distinguishes it from other works,
 including other versions of the same intellectual material. Examples of
@@ -102,24 +101,18 @@ since publication, and more.)</p>
 
 <hr />
 
-<blockquote>
-<h2>Exercise 1a. Practice using <code>curl</code> to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.</h2>
+<h3>Exercise 1a. Practice using <code>curl</code> to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.</h3>
 
-<blockquote>
-<p><code>$ curl http://thinkchecksubmit.org -o think.txt</code>
-<code>$ less think.txt</code></p>
-</blockquote>
-</blockquote>
+<pre><code>$ curl http://thinkchecksubmit.org -o think.txt
+$ less think.txt
+</code></pre>
 
 <p>What is the format of the retrieved content? Change the file extension to reflect the format of this web document</p>
 
-<blockquote>
-<h2>Exercise 1b. Convert the file into a clean format for reading or printing using <code>pandoc</code></h2>
+<h3>Exercise 1b. Convert the file into a clean format for reading or printing using <code>pandoc</code></h3>
 
-<blockquote>
-<p><code>$pandoc -o think.docx filename_from_previous_step</code></p>
-</blockquote>
-</blockquote>
+<pre><code>$pandoc -o think.docx filename_from_previous_step
+</code></pre>
 
 <p>Launch Open Office: how does the document look now? Will printing this document now look different than if you print it directly from the website?</p>
 
@@ -127,164 +120,53 @@ since publication, and more.)</p>
 
 <hr />
 
-<blockquote>
-<h2>Exercise 2a. Practice using <code>curl</code> to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.</h2>
+<h3>Exercise 2a. Practice using <code>curl</code> to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.</h3>
 
-<blockquote>
-<p><code>$curl -o shen.txt
-https://api.crossref.org/works/10.1186.s12916-015-0469-2</code>
-<code>$ less shen.txt</code></p>
-</blockquote>
-</blockquote>
+<pre><code>$curl -o shen.txt https://api.crossref.org/works/10.1186.s12916-015-0469-2`
+$ less shen.txt
+</code></pre>
 
 <p>What is the format of the retrieved content? Change the file extension to reflect the type of format this data is in.</p>
 
-<blockquote>
-<h2>Exercise 2b. Use the jq tool to pretty print the file for easier human reading.</h2>
+<h3>Exercise 2b. Use the jq tool to pretty print the file for easier human reading.</h3>
 
-<blockquote>
-<p><code>$jq . filename_from_previous_step &gt;shen_pretty.json</code></p>
-</blockquote>
-</blockquote>
+<pre><code>$jq . filename_from_previous_step &gt;shen_pretty.json
+</code></pre>
 
 <p>Now that you can read the file more easily, answer the following questions
 - what is the title of the document?
 - how many references does this article cite?</p>
 
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<hr />
 
-<h5>Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.</h5>
+<h3>Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.</h3>
 
 <pre><code>$curl -LH -o shen_apa.txt &quot;Accept:text/x-bibliography; style=apa&quot; https://doi.org/10.1186.s12916-015-0469-2
 
 $less shen_apa.txt
 </code></pre>
 
-<h5>Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex.  (For example, the ORCiD researcher profile system and certain funding agency&rsquo;s submission system accespt bibtex citations). Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format.</h5>
+<h3>Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex.  Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format.</h3>
+
+<p>(For example, the ORCiD researcher profile system and certain funding agencyies&rsquo; submission systems accespt bibtex citations).</p>
 
 <pre><code>$curl -LH -o shen.bib &quot;Accept:application/x-bibtex&quot; https://doi.org/10.1186.s12916-015-0469-2
+
+$less shen.bib
 </code></pre>
 
-<p>$less shen.bib</p>
-
-<h5>Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:</h5>
+<h3>Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:</h3>
 
 <ul>
 <li>10.1126/science.342.6154.60</li>
 <li>10.3346/jkms.2017.32.5.713</li>
-<li>10.<sup>7710</sup>&frasl;<sub>2162</sub>-3309.1133</li>
-<li>10.1503/cmaj.109-4889</li>
+<li>10.1503/cmaj.109-4889
+&mdash;</li>
 </ul>
 
 <p><em>Challenge question</em>: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?</p>
 
-<p>You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.</p>
-
-<h2>Exercise 1A. Demonstrate that a DOI redirects to a landing page for an</h2>
-
-<h2>associated information resource.</h2>
-
-<p>## Solution 1A</p>
-
-<pre><code class="language-shell">    curl -L \
-      http://dx.doi.org/10.1103/PhysRev.109.193
-    curl -L \
-          http://dx.doi.org/10.7935/K5H41PBP
-</code></pre>
-
-<p>Whose websites did the redirects for each DOI take you to?</p>
-
-<p>=======</p>
-
-<h2>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 09b2e6276de10e100175de4514bcb448e0aba30c</h2>
-
-<blockquote>
-<h2>Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.</h2>
-
-<blockquote>
-<p><code>$curl -LH -o shen_apa.txt &quot;Accept:text/x-bibliography; style=apa&quot;
-https://doi.org/10.1186.s12916-015-0469-2</code></p>
-
-<p><code>$less shen_apa.txt</code></p>
-</blockquote>
-
-<h2>Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex (e.g. the ORCiD researcher profile system and your funding agency&rsquo;s submission system). Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format.</h2>
-
-<blockquote>
-<p><code>$curl -LH -o shen.bib &quot;Accept:application/x-bibtex&quot;
-https://doi.org/10.1186.s12916-015-0469-2</code></p>
-
-<p><code>$less shen.bib</code></p>
-</blockquote>
-
-<h2>Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:</h2>
-
-<pre><code class="language-shell">- 10.1126/science.342.6154.60
-- 10.3346/jkms.2017.32.5.713
-- 10.7710/2162-3309.1133
-- 10.1503/cmaj.109-4889
-</code></pre>
-
-<p>Challenge question: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?</p>
-</blockquote>
-
 <hr />
-
-<blockquote>
-<h2>Exercise 4A. Demonstrate that a DOI redirects to a landing page for an associated information resource.</h2>
-
-<pre><code class="language-shell">   curl -L http://dx.doi.org/10.1103/PhysRev.109.193
-   curl -L http://dx.doi.org/10.7935/K5H41PBP
-</code></pre>
-
-<p>Whose websites did the redirects for each DOI take you to?</p>
-
-<h2>Exercise 4B. Resolve a DOI to a landing page to confirm its validity, and determine the title of the associated digital object.</h2>
-
-<blockquote>
-<h2>Solution 4B</h2>
-
-<p><code>$ curl  -s -S -L http://dx.doi.org/10.1103/PhysRevLett.116.061102 &gt;redirect1.txt</code></p>
-
-<p><code>$ grep &quot;citation_title&quot; redirect1.txt</code></p>
-
-<p><code>$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP &gt;redirect2.txt</code></p>
-
-<p><code>$ grep &quot;title&quot; redirect2.txt</code></p>
-</blockquote>
-
-<h2>Exercise 4C. Determine if a &lsquo;DOI-style string&rsquo; is a valid DOI.</h2>
-
-<blockquote>
-<h2>Solution 4C</h2>
-
-<p><code>$ curl -s -S -L http://dx.doi.org/10.5454/JPSv1i220161014 | grep &quot;title&quot;</code></p>
-
-<p>Note: The faux DOI used in this example was assigned by an established
-publisher to detect and block unauthorized access to their system. The
-controversy surrounding publisher creation of DOI-like strings for business
-operations was taken up in an interesting posting on the CrossRef blog, <a href="http://blog.crossref.org/2016/06/doi-like-strings-and-fake-dois.html">DOI
-like strings and fake DOIs</a>.</p>
-</blockquote>
-
-<h2>Exercise 4D. Retrieve the landing page for a DOI object and &ldquo;pretty print&rdquo; the output to something easier on the eyes.</h2>
-
-<blockquote>
-<h2>Solution 4D</h2>
-
-<p><code>$ curl -s -S -L http://dx.doi.org/10.7935/K5MW2F23 &gt;ex1A4.txt</code></p>
-
-<p><code>$ less ex1A4.txt</code></p>
-
-<p>What format is the landing page provided in?</p>
-
-<p>To make the retrieved data easier to read, remove the markup using the the Unix
-stream editor sed. A regular expression is used to represent all unwanted
-content between html brackets.</p>
-
-<p><code>$ sed -e 's/&lt;[^&gt;]*&gt;//g' ex1A4.txt &gt; ex1A4_pretty.txt</code></p>
-</blockquote>
-</blockquote>
 
 <h2>Anatomy of a DOI</h2>
 
@@ -332,61 +214,6 @@ data for a researcher. We&rsquo;ll look at this data throughout the rest of the
 lesson.</p>
 
 <p><img src="img/Figure1.jpg" alt="Anatomy of a DOI" width="666" height ="371"></p>
-
-<hr />
-
-<blockquote>
-<h2>Exercise 5A. Demonstrate that a DOI redirects to the landing page for an</h2>
-
-<h2>associated digital object and retrieve the content of the landing page.</h2>
-
-<blockquote>
-<h2>Solution 5A</h2>
-
-<p><code>$ curl -s -S -L http://dx.doi.org/10.1103/PhysRev.109.193 &gt;landing1.txt</code></p>
-
-<p><code>$ curl -s -S -L http://dx.doi.org/10.7935/K5H41PBP &gt;landing2.txt</code></p>
-
-<p><code>$ wc landing*.txt</code></p>
-</blockquote>
-
-<h2>Exercise 5B. Given a DOI, determine which Registration Agency issued it.</h2>
-
-<blockquote>
-<h2>Solution 5B</h2>
-
-<p><code>$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101</code></p>
-
-<p><code>$ curl http://doi.crossref.org/doiRA/10.5170/CERN-2000-001.101,
-doi.crossref.org/doiRA/10.2307/1578389</code>
-Note that this handy lookup service is provided by one of the Registration
-Agencies, CrossRef, yet the query also works for DOIs issued by other
-Registration Agencies! This demonstrates that each DOI Agency provides an
-array
-of services beyond registering and maintaining DOIs for their members;
-savvy
-researchers may wish to check with more than one RA to get useful
-information.</p>
-</blockquote>
-
-<h2>Exercise 5C. Retrieve a list of DataCite members and determine the format of the data provided</h2>
-
-<blockquote>
-<h2>Solution 5C</h2>
-
-<p><code>$ curl -s -S http://api.datacite.org/members &gt;datacite.txt</code></p>
-
-<p><code>$ less datacite.txt</code>
-Note that the data comes from the Datacite API in JSON format (Javascript
-Object Notation) &ndash; an increasingly popular metadata standard for Web
-services.
-JSON is great for machines to read, but not so much for humans! So let&rsquo;s
-convert it to something easier on the eyes.</p>
-
-<p><code>$ cat datacite.txt | tr ',' '\012' &gt;datacite_pretty.txt</code>
-<code>$ less datacite_pretty.txt</code></p>
-</blockquote>
-</blockquote>
 
 <hr />
 
