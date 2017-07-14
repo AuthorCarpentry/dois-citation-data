@@ -41,7 +41,7 @@ workflow.
 You should have a list of publications (with a few DOIs) and a scholarly object (like a presentation, data set, report, or photo) that you are willing to share in an
 open repository with an associated DOI.
 
-This lesson requires basic familiarity with the bash shell, simmilar to the
+This lesson requires basic familiarity with the bash shell, similar to the
 experience gained through the
 [Software Carpentry shell lesson](http://swcarpentry.github.io/shell-novice/).
 You'll need to have a bash shell installed, you can follow
@@ -67,7 +67,7 @@ http://blog.crossref.org/2016/06/beyond-the-doi-to-richer-metadata.html
 + Digital Object Identifier (DOI) Handbook, https://www.doi.org/hb.html
 + Digital Object Identifier System and DOI Names (DOIs) Guide from Australian
 National Data Service, http://www.ands.org.au/guides/doi
-+ DOI Citation Formatter beta, http://crosscite.org/citeproc/
++ DOI Citation Formatter beta, https://citation.crosscite.org
 + jq online testing tool, https://jqplay.org/
 + Parsing JSON with jq, http://www.compciv.org/recipes/cli/jq-for-parsing-json/
 + Pandoc User Manual, http://pandoc.org/MANUAL.html

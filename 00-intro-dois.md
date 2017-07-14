@@ -74,16 +74,17 @@ Finally, we will add to our command line repetoire by practicing a few new tools
 
 ### Exercise 1a. Practice using `curl` to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.
 
-    $ curl http://thinkchecksubmit.org -o think.txt
+    $ curl http://thinkchecksubmit.org/check/ -o think.txt
     $ less think.txt
 
 What is the format of the retrieved content? Change the file extension to reflect the format of this web document
 
 ### Exercise 1b. Convert the file into a clean format for reading or printing using `pandoc`
 
-    $pandoc -o think.docx filename_from_previous_step
+    $ pandoc -o think.docx filename_from_previous_step
 
-Launch Open Office: how does the document look now? Will printing this document now look different than if you print it directly from the website?
+Launch Open Office: how does the document look now? Will printing this document in this format look different than if you print it directly from the website?
+
 
 TIP: _Feel free to send yourself a copy of this useful handout on how to assess whether a journal is reputable or not_
 
@@ -91,7 +92,7 @@ TIP: _Feel free to send yourself a copy of this useful handout on how to assess 
 
 ### Exercise 2a. Practice using `curl` to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.
 
-    $curl -o shen.txt https://api.crossref.org/works/10.1186.s12916-015-0469-2`
+    $ curl -o shen.txt https://api.crossref.org/works/10.1186/s12916-015-0469-2
     $ less shen.txt
 
  What is the format of the retrieved content? Change the file extension to reflect the type of format this data is in.
@@ -100,7 +101,8 @@ TIP: _Feel free to send yourself a copy of this useful handout on how to assess 
 
     $jq . filename_from_previous_step >shen_pretty.json
 
-Now that you can read the file more easily, answer the following questions
+Now that you can read the file more easily, you should be able to answer the following questions:
+
 - what is the title of the document?
 - how many references does this article cite?
 
@@ -108,27 +110,38 @@ Now that you can read the file more easily, answer the following questions
 
 ### Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.
 
-    $curl -LH -o shen_apa.txt "Accept:text/x-bibliography; style=apa" https://doi.org/10.1186.s12916-015-0469-2
+    $ curl -LH "Accept:text/x-bibliography; style=apa" https://doi.org/10.1186/s12916-015-0469-2
 
-    $less shen_apa.txt
+### Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex.  Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format. Save the output to a file on your desktop for later reuse.
+(For example, the ORCiD researcher profile system and certain funding agencies' submission systems accespt bibtex citations).
 
+    $ curl -LH "Accept:application/x-bibtex" https://doi.org/10.1186/s12916-015-0469-2 -o shen.bib
 
-### Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex.  Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format.
-(For example, the ORCiD researcher profile system and certain funding agencyies' submission systems accespt bibtex citations).
-
-    $curl -LH -o shen.bib "Accept:application/x-bibtex" https://doi.org/10.1186.s12916-015-0469-2
-
-    $less shen.bib
+    $ less shen.bib
 
 ### Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:
+
 - 10.1126/science.342.6154.60
 - 10.3346/jkms.2017.32.5.713
 - 10.1503/cmaj.109-4889
----
+
 
 *Challenge question*: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?
 
+Solution
+    $ cat file1.bib file2.bib file3.bib > publist.bib
+
+
+
 ---
+### Exercise 4. The final step in your author carpentry DOI pipeline to make a 'publication list' with your works based on their DOIs. Can you apply the steps learned in Exercises 2+3 to accomplish this task?
+
+HINT: You need to use content negotation with the DOI database to retrieve  citations for each DOI you have. Then combine the individual citations into a single file.  
+
+Once you have a bibtex file with your DOIs and citations, you are ready to set up your ORCiD account and connect your author ID with your DOIs.`
+
+---
+
 
 ## Anatomy of a DOI
 

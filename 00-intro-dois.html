@@ -103,7 +103,7 @@ since publication, and more.)</p>
 
 <h3>Exercise 1a. Practice using <code>curl</code> to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.</h3>
 
-<pre><code>$ curl http://thinkchecksubmit.org -o think.txt
+<pre><code>$ curl http://thinkchecksubmit.org/check/ -o think.txt
 $ less think.txt
 </code></pre>
 
@@ -111,10 +111,10 @@ $ less think.txt
 
 <h3>Exercise 1b. Convert the file into a clean format for reading or printing using <code>pandoc</code></h3>
 
-<pre><code>$pandoc -o think.docx filename_from_previous_step
+<pre><code>$ pandoc -o think.docx filename_from_previous_step
 </code></pre>
 
-<p>Launch Open Office: how does the document look now? Will printing this document now look different than if you print it directly from the website?</p>
+<p>Launch Open Office: how does the document look now? Will printing this document in this format look different than if you print it directly from the website?</p>
 
 <p>TIP: <em>Feel free to send yourself a copy of this useful handout on how to assess whether a journal is reputable or not</em></p>
 
@@ -122,7 +122,7 @@ $ less think.txt
 
 <h3>Exercise 2a. Practice using <code>curl</code> to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.</h3>
 
-<pre><code>$curl -o shen.txt https://api.crossref.org/works/10.1186.s12916-015-0469-2`
+<pre><code>$ curl -o shen.txt https://api.crossref.org/works/10.1186/s12916-015-0469-2
 $ less shen.txt
 </code></pre>
 
@@ -133,26 +133,27 @@ $ less shen.txt
 <pre><code>$jq . filename_from_previous_step &gt;shen_pretty.json
 </code></pre>
 
-<p>Now that you can read the file more easily, answer the following questions
-- what is the title of the document?
-- how many references does this article cite?</p>
+<p>Now that you can read the file more easily, you should be able to answer the following questions:</p>
+
+<ul>
+<li>what is the title of the document?</li>
+<li>how many references does this article cite?</li>
+</ul>
 
 <hr />
 
 <h3>Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.</h3>
 
-<pre><code>$curl -LH -o shen_apa.txt &quot;Accept:text/x-bibliography; style=apa&quot; https://doi.org/10.1186.s12916-015-0469-2
-
-$less shen_apa.txt
+<pre><code>$ curl -LH &quot;Accept:text/x-bibliography; style=apa&quot; https://doi.org/10.1186/s12916-015-0469-2
 </code></pre>
 
-<h3>Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex.  Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format.</h3>
+<h3>Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex.  Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format. Save the output to a file on your desktop for later reuse.</h3>
 
-<p>(For example, the ORCiD researcher profile system and certain funding agencyies&rsquo; submission systems accespt bibtex citations).</p>
+<p>(For example, the ORCiD researcher profile system and certain funding agencies&rsquo; submission systems accespt bibtex citations).</p>
 
-<pre><code>$curl -LH -o shen.bib &quot;Accept:application/x-bibtex&quot; https://doi.org/10.1186.s12916-015-0469-2
+<pre><code>$ curl -LH &quot;Accept:application/x-bibtex&quot; https://doi.org/10.1186/s12916-015-0469-2 -o shen.bib
 
-$less shen.bib
+$ less shen.bib
 </code></pre>
 
 <h3>Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:</h3>
@@ -160,11 +161,21 @@ $less shen.bib
 <ul>
 <li>10.1126/science.342.6154.60</li>
 <li>10.3346/jkms.2017.32.5.713</li>
-<li>10.1503/cmaj.109-4889
-&mdash;</li>
+<li>10.1503/cmaj.109-4889</li>
 </ul>
 
 <p><em>Challenge question</em>: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?</p>
+
+<p>Solution
+    $ cat file1.bib file2.bib file3.bib &gt; publist.bib</p>
+
+<hr />
+
+<h3>Exercise 4. The final step in your author carpentry DOI pipeline to make a &lsquo;publication list&rsquo; with your works based on their DOIs. Can you apply the steps learned in Exercises 2+3 to accomplish this task?</h3>
+
+<p>HINT: You need to use content negotation with the DOI database to retrieve  citations for each DOI you have. Then combine the individual citations into a single file.</p>
+
+<p>Once you have a bibtex file with your DOIs and citations, you are ready to set up your ORCiD account and connect your author ID with your DOIs.`</p>
 
 <hr />
 
