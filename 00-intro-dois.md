@@ -74,16 +74,16 @@ Finally, we will add to our command line repetoire by practicing a few new tools
 
 ### Exercise 1a. Practice using `curl` to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.
 
-    $ curl http://thinkchecksubmit.org/check/ -o think.txt
-    $ less think.txt
+    $ curl http://thinkchecksubmit.org/check/ -o think.html
+    $ less think.html
 
 What is the format of the retrieved content? Change the file extension to reflect the format of this web document
 
 ### Exercise 1b. Convert the file into a clean format for reading or printing using `pandoc`
 
-    $ pandoc -o think.docx filename_from_previous_step
+    $ pandoc -o think.docx think.html
 
-Launch Open Office: how does the document look now? Will printing this document in this format look different than if you print it directly from the website?
+Please note .docx instead of .doc, otherwise it doesn't work. Launch LibreOffice: how does the document look now? Will printing this document in this format look different than if you print it directly from the website?
 
 
 TIP: _Feel free to send yourself a copy of this useful handout on how to assess whether a journal is reputable or not_
@@ -99,7 +99,7 @@ TIP: _Feel free to send yourself a copy of this useful handout on how to assess 
 
 ### Exercise 2b. Use the jq tool to pretty print the file for easier human reading.
 
-    $jq . filename_from_previous_step >shen_pretty.json
+    $ jq . filename_from_previous_step > shen_pretty.json
 
 Now that you can read the file more easily, you should be able to answer the following questions:
 
@@ -129,6 +129,7 @@ Now that you can read the file more easily, you should be able to answer the fol
 *Challenge question*: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?
 
 Solution
+   
     $ cat file1.bib file2.bib file3.bib > publist.bib
 
 

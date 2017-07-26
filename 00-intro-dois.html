@@ -103,18 +103,18 @@ since publication, and more.)</p>
 
 <h3>Exercise 1a. Practice using <code>curl</code> to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.</h3>
 
-<pre><code>$ curl http://thinkchecksubmit.org/check/ -o think.txt
-$ less think.txt
+<pre><code>$ curl http://thinkchecksubmit.org/check/ -o think.html
+$ less think.html
 </code></pre>
 
 <p>What is the format of the retrieved content? Change the file extension to reflect the format of this web document</p>
 
 <h3>Exercise 1b. Convert the file into a clean format for reading or printing using <code>pandoc</code></h3>
 
-<pre><code>$ pandoc -o think.docx filename_from_previous_step
+<pre><code>$ pandoc -o think.docx think.thml
 </code></pre>
 
-<p>Launch Open Office: how does the document look now? Will printing this document in this format look different than if you print it directly from the website?</p>
+<p>Please note .docx instead of .doc, otherwise it doesn&rsquo;t work. Launch LibreOffice: how does the document look now? Will printing this document in this format look different than if you print it directly from the website?</p>
 
 <p>TIP: <em>Feel free to send yourself a copy of this useful handout on how to assess whether a journal is reputable or not</em></p>
 
@@ -130,7 +130,7 @@ $ less shen.txt
 
 <h3>Exercise 2b. Use the jq tool to pretty print the file for easier human reading.</h3>
 
-<pre><code>$jq . filename_from_previous_step &gt;shen_pretty.json
+<pre><code>$ jq . filename_from_previous_step &gt; shen_pretty.json
 </code></pre>
 
 <p>Now that you can read the file more easily, you should be able to answer the following questions:</p>
@@ -166,8 +166,10 @@ $ less shen.bib
 
 <p><em>Challenge question</em>: how could you use a single command line tool to quickly combine these citations into one file representing your publication list?</p>
 
-<p>Solution
-    $ cat file1.bib file2.bib file3.bib &gt; publist.bib</p>
+<p>Solution</p>
+
+<pre><code>$ cat file1.bib file2.bib file3.bib &gt; publist.bib
+</code></pre>
 
 <hr />
 
