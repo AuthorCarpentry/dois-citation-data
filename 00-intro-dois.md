@@ -81,7 +81,7 @@ What is the format of the retrieved content? Change the file extension to reflec
 
 ### Exercise 1b. Convert the file into a clean format for reading or printing using `pandoc`
 
-    $ pandoc -o think.docx think.thml
+    $ pandoc -o think.docx think.html
 
 Please note .docx instead of .doc, otherwise it doesn't work. Launch LibreOffice: how does the document look now? Will printing this document in this format look different than if you print it directly from the website?
 
