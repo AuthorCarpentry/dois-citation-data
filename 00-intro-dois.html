@@ -13,7 +13,6 @@
 <li><a href=".">Lesson</a></li>
 <li><a href="00-intro-dois.html">Intro</a></li>
 <li><a href="01-register-doi.html">Register a DOI</a></li>
-<li><a href="02-doi-metadata.html">DOI Metadata</a></li>
 <li><a href="mailto:authorcarpentry@library.caltech.edu">Contact Us</a></li>
 </ul>
 
@@ -22,7 +21,7 @@
 <section>
 <h1>Persistent Identifiers and Open Citations: Basic Building Blocks of the Scholarly Web</h1>
 
-<p>20 Minutes</p>
+<p>45 Minutes</p>
 
 <hr />
 
@@ -122,16 +121,24 @@ $ less think.html
 
 <h3>Exercise 2a. Practice using <code>curl</code> to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.</h3>
 
-<pre><code>$ curl -o shen.txt https://api.crossref.org/works/10.1186/s12916-015-0469-2
-$ less shen.txt
+<pre><code>$ curl -o shen.json https://api.crossref.org/works/10.1186/s12916-015-0469-2
+$ less shen.json
 </code></pre>
 
-<p>What is the format of the retrieved content? Change the file extension to reflect the type of format this data is in.</p>
+<p>What is the format of the retrieved content?</p>
 
-<h3>Exercise 2b. Use the jq tool to pretty print the file for easier human reading.</h3>
+<h3>Exercise 2b. Use either atom (with pretty-json)  or jq to pretty print the file for easier human reading.</h3>
 
-<pre><code>$ jq . filename_from_previous_step &gt; shen_pretty.json
-</code></pre>
+<blockquote>
+<h4>Atom</h4>
+
+<p>Open your .json file in Atom. Click Packages/Pretty JSON/Prettify.  Now you
+can save the formatted file as shen_pretty.json.</p>
+
+<h4>jq</h4>
+
+<p>$ jq . shen.json &gt; shen_pretty.json</p>
+</blockquote>
 
 <p>Now that you can read the file more easily, you should be able to answer the following questions:</p>
 

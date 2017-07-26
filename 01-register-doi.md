@@ -1,6 +1,6 @@
 # Register a DOI
 
-15 min
+30 min
 
 ---
 
@@ -148,4 +148,4 @@ using this DOI throughout the rest of the workshop.
 
 ---
 
-Previous: [Anatomy of a DOI](00-intro-dois.html)  Next: [DOI Metadata](02-doi-metadata.html)  
+Previous: [Anatomy of a DOI](00-intro-dois.html)    

@@ -1,6 +1,6 @@
 #  Persistent Identifiers and Open Citations: Basic Building Blocks of the Scholarly Web
 
-20 Minutes
+45 Minutes
 
 ---
 
@@ -92,14 +92,21 @@ TIP: _Feel free to send yourself a copy of this useful handout on how to assess 
 
 ### Exercise 2a. Practice using `curl` to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.
 
-    $ curl -o shen.txt https://api.crossref.org/works/10.1186/s12916-015-0469-2
-    $ less shen.txt
+    $ curl -o shen.json https://api.crossref.org/works/10.1186/s12916-015-0469-2
+    $ less shen.json
 
- What is the format of the retrieved content? Change the file extension to reflect the type of format this data is in.
+ What is the format of the retrieved content? 
 
-### Exercise 2b. Use the jq tool to pretty print the file for easier human reading.
+### Exercise 2b. Use either atom (with pretty-json)  or jq to pretty print the file for easier human reading.
 
-    $ jq . filename_from_previous_step > shen_pretty.json
+> #### Atom
+>
+> Open your .json file in Atom. Click Packages/Pretty JSON/Prettify.  Now you
+> can save the formatted file as shen_pretty.json.  
+>
+> #### jq
+>
+>    $ jq . shen.json > shen_pretty.json
 
 Now that you can read the file more easily, you should be able to answer the following questions:
 
@@ -131,8 +138,6 @@ Now that you can read the file more easily, you should be able to answer the fol
 Solution
    
     $ cat file1.bib file2.bib file3.bib > publist.bib
-
-
 
 ---
 ### Exercise 4. The final step in your author carpentry DOI pipeline to make a 'publication list' with your works based on their DOIs. Can you apply the steps learned in Exercises 2+3 to accomplish this task?
