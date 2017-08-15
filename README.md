@@ -57,9 +57,9 @@ jQuery (jq) Quick API Reference, https://oscarotero.com/jquery/
 
 ## References
 
-+ curl documentation, 2016. https://curl.haxx.se/
-+ CrossRef REST API, 2016.
-https://github.com/CrossRef/rest-api-doc/blob/master/rest_api.md
++ curl documentation, https://curl.haxx.se/
++ CrossRef REST API, https://github.com/CrossRef/rest-api-doc
++ CrossRef Content Negotiation, https://citation.crosscite.org/docs.html
 + Beyond the DOI to richer metadata, CrossRef Blog posting of June 15, 2016 by
 April Ondis,
 http://blog.crossref.org/2016/06/beyond-the-doi-to-richer-metadata.html
