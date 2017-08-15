@@ -76,14 +76,15 @@ Finally, we will add to our command line repetoire by practicing a few new tools
 
 First, check that you are on your desktop.  Type
 
-    $pwd
+    $ pwd
 
 This will print your location to the terminal.  In most cases you can move to the
 desktop by typing
 
     $ cd ~/Desktop
 
-Now we'll use curl to grab web content.
+Now we'll use curl to grab web content.  Note that you can copy and paste these
+commands into your terminal window to save typing.
 
     $ curl http://thinkchecksubmit.org/check/ -o think.html
     $ head think.html
@@ -130,7 +131,10 @@ Now that you can read the file more easily, you should be able to answer the fol
 
 ### Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.
 
-    $ curl -LH "Accept:text/x-bibliography; style=apa" https://doi.org/10.1186/s12916-015-0469-2a -o shen.txt
+    $ curl -LH "Accept:text/x-bibliography; style=apa" https://doi.org/10.1186/s12916-015-0469-2 -o shen.txt
+
+    The -H option provides headers and the -L option tells curl to follow
+redirects.  See what you get when you leave off the -L
 
 ### Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex.  Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format. Save the output to a file on your desktop for later reuse.
 (For example, the ORCiD researcher profile system and certain funding agencies' submission systems accespt bibtex citations).
