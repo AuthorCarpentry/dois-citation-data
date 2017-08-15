@@ -102,11 +102,25 @@ since publication, and more.)</p>
 
 <h3>Exercise 1a. Practice using <code>curl</code> to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.</h3>
 
-<pre><code>$ curl http://thinkchecksubmit.org/check/ -o think.html
-$ less think.html
+<p>First, check that you are on your desktop.  Type</p>
+
+<pre><code>$ pwd
 </code></pre>
 
-<p>What is the format of the retrieved content? Change the file extension to reflect the format of this web document</p>
+<p>This will print your location to the terminal.  In most cases you can move to the
+desktop by typing</p>
+
+<pre><code>$ cd ~/Desktop
+</code></pre>
+
+<p>Now we&rsquo;ll use curl to grab web content.  Note that you can copy and paste these
+commands into your terminal window to save typing.</p>
+
+<pre><code>$ curl http://thinkchecksubmit.org/check/ -o think.html
+$ head think.html
+</code></pre>
+
+<p>What is the format of the retrieved content? How would we view this content?</p>
 
 <h3>Exercise 1b. Convert the file into a clean format for reading or printing using <code>pandoc</code></h3>
 
@@ -122,7 +136,7 @@ $ less think.html
 <h3>Exercise 2a. Practice using <code>curl</code> to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.</h3>
 
 <pre><code>$ curl -o shen.json https://api.crossref.org/works/10.1186/s12916-015-0469-2
-$ less shen.json
+$ head shen.json
 </code></pre>
 
 <p>What is the format of the retrieved content?</p>
@@ -134,6 +148,8 @@ $ less shen.json
 
 <p>Open your .json file in Atom. Click Packages/Pretty JSON/Prettify.  Now you
 can save the formatted file as shen_pretty.json.</p>
+
+<p>OR</p>
 
 <h4>jq</h4>
 
@@ -151,8 +167,12 @@ can save the formatted file as shen_pretty.json.</p>
 
 <h3>Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.</h3>
 
-<pre><code>$ curl -LH &quot;Accept:text/x-bibliography; style=apa&quot; https://doi.org/10.1186/s12916-015-0469-2
+<pre><code>$ curl -LH &quot;Accept:text/x-bibliography; style=apa&quot; https://doi.org/10.1186/s12916-015-0469-2 -o shen.txt
+
+The -H option provides headers and the -L option tells curl to follow
 </code></pre>
+
+<p>redirects.  See what you get when you leave off the -L</p>
 
 <h3>Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex.  Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format. Save the output to a file on your desktop for later reuse.</h3>
 
@@ -160,7 +180,7 @@ can save the formatted file as shen_pretty.json.</p>
 
 <pre><code>$ curl -LH &quot;Accept:application/x-bibtex&quot; https://doi.org/10.1186/s12916-015-0469-2 -o shen.bib
 
-$ less shen.bib
+$ head shen.bib
 </code></pre>
 
 <h3>Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:</h3>
@@ -234,6 +254,23 @@ data for a researcher. We&rsquo;ll look at this data throughout the rest of the
 lesson.</p>
 
 <p><img src="img/Figure1.jpg" alt="Anatomy of a DOI" width="666" height ="371"></p>
+
+<hr />
+
+<h3>Exercise 5. Find out who owns a DOI prefix</h3>
+
+<p>DOI prefixes can be assigned by different Registration Agencies to different
+users.  DataCite has an api that gives you the Registraition Agency.</p>
+
+<pre><code>$ curl &quot;https://api.datacite.org/prefixes/10.14291&quot;
+$ curl &quot;https://api.datacite.org/prefixes/10.1021&quot;
+</code></pre>
+
+<p>If the Registration Agency is CrossRef, you can use the CrossRef API to get
+more information about the member assigned to the prefix.</p>
+
+<pre><code>$ curl &quot;https://api.crossref.org/prefixes/10.1021&quot;
+</code></pre>
 
 <hr />
 
