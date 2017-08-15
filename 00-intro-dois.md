@@ -207,6 +207,21 @@ lesson.
 
 <img src="img/Figure1.jpg" alt="Anatomy of a DOI" width="666" height ="371">
 
+
+---
+### Exercise 5. Find out who owns a DOI prefix
+
+DOI prefixes can be assigned by different Registration Agencies to different
+users.  DataCite has an api that gives you the Registraition Agency.
+
+    $ curl "https://api.datacite.org/prefixes/10.14291"
+    $ curl "https://api.datacite.org/prefixes/10.1021"
+
+If the Registration Agency is CrossRef, you can use the CrossRef API to get
+more information about the member assigned to the prefix.
+
+    $ curl "https://api.crossref.org/prefixes/10.1021"
+
 ---
 
 Next: [Register a DOI](01-register-doi.html)
