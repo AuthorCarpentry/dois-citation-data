@@ -30,7 +30,6 @@ Author Carpentry : Persistent access for research outputs with Digital Object Id
 
 1. [Intro](00-intro-dois.html)
 2. [Register a DOI](01-register-doi.html)
-3. [DOI Metadata](02-doi-metadata.html)
 
 ## Requirements
 
