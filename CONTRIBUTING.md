@@ -20,7 +20,7 @@ agrees to abide by our [code of conduct](CONDUCT.md).
 ## Editing Lesson Content
 
 All lesson content is written in markdown (.md) files.  We use [mkpage](https://github.com/caltechlibrary/mkpage) 
-to render lesson content into .html pages.  Install mkpage from the Caltech
+ version 1.0+ to render lesson content into .html pages.  Install mkpage from the Caltech
 Library repository at https://github.com/caltechlibrary/mkpage.  There is
 a different mkpage available via rpm that won't work for our application.
 While GitHub can render content, we use mkpage so lesson content can
