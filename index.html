@@ -10,96 +10,156 @@
 </header>
 <nav>
 <ul>
-<li><a href=".">Lesson</a></li>
-<li><a href="00-intro-dois.html">Intro</a></li>
-<li><a href="01-register-doi.html">Register a DOI</a></li>
-<li><a href="mailto:authorcarpentry@library.caltech.edu">Contact Us</a></li>
+<li>
+<a href=".">Lesson</a>
+</li>
+<li>
+<a href="00-intro-dois.html">Intro</a>
+</li>
+<li>
+<a href="01-register-doi.html">Register a DOI</a>
+</li>
+<li>
+<a href="mailto:authorcarpentry@library.caltech.edu">Contact Us</a>
+</li>
 </ul>
-
 </nav>
 
 <section>
-<h1>Author Carpentry : Persistent access for research outputs with Digital Object Identifiers</h1>
-
-<p><em>Content Contributors: Gail Clement, Tom Morrell</em></p>
-
-<p><em>Lesson Maintainers: Gail Clement, Tom Morrell</em></p>
-
-<p><strong>Lesson status: Active</strong></p>
-
+<h1 id="author-carpentry-persistent-access-for-research-outputs-with-digital-object-identifiers">
+Author Carpentry : Persistent access for research outputs with Digital Object Identifiers
+</h1>
+<p>
+<em>Content Contributors: Gail Clement, Tom Morrell</em>
+</p>
+<p>
+<em>Lesson Maintainers: Gail Clement, Tom Morrell</em>
+</p>
+<p>
+<strong>Lesson status: Active</strong>
+</p>
 <ul>
-<li>Taught at <a href="http://indico.ictp.it/event/7974/">CODATA-RDA Research Data Science Summer School, July 10-17, 2017</a> and the <a href="https://www.force11.org/node/7786/#wt3">Force11 Scholarly Communication Institute, August 1-4, 2017</a></li>
-<li>Piloted at <a href="http://indico.ictp.it/event/7658/">CODATA-RDA Research Data Science Summer School, August 2-16, 2016</a></li>
+<li>
+Taught at <a href="http://indico.ictp.it/event/7974/">CODATA-RDA Research Data Science Summer School, July 10-17, 2017</a> and the <a href="https://www.force11.org/node/7786/#wt3">Force11 Scholarly Communication Institute, August 1-4, 2017</a>
+</li>
+<li>
+Piloted at <a href="http://indico.ictp.it/event/7658/">CODATA-RDA Research Data Science Summer School, August 2-16, 2016</a>
+</li>
 </ul>
-
-<h2>What you will learn:</h2>
-
+<h2 id="what-you-will-learn">
+What you will learn:
+</h2>
 <ul>
-<li>Recognize the essential role of Digital Object Identifiers as building blocks on the scholarly web</li>
-<li>List reasons to use DOIs</li>
-<li>Identify components of a DOI</li>
-<li>Apply basic UNIX curl commands to test and resolve DOIs for research objects</li>
-<li>Explain how the DOI registration system is organized and what information it yields for authors</li>
-<li>Register a DOI for a scholarly work using an open repository</li>
-<li>Create appropriate metadata to describe a new work and mint a DOI for it</li>
-<li>Retrieve the metadata associated with a DOI</li>
-<li>Apply content negotiation commands to obtain a citation for a given DOI in a preferred style (e.g. BibTeX  or APA) from the CrossRef API</li>
-<li>Gain experience with command line tools to:</li>
-<li>parse DOI metadata in JSON (Javascript Object Notation) format;</li>
-<li>convert documents in one markup format to another format</li>
-<li>concatenate  citations into a single BibTeX publication list for reuse in other researcher systems (ORCiD; MySciEnCV; Latex)</li>
+<li>
+Recognize the essential role of Digital Object Identifiers as building blocks on the scholarly web
+</li>
+<li>
+List reasons to use DOIs
+</li>
+<li>
+Identify components of a DOI
+</li>
+<li>
+Apply basic UNIX curl commands to test and resolve DOIs for research objects
+</li>
+<li>
+Explain how the DOI registration system is organized and what information it yields for authors
+</li>
+<li>
+Register a DOI for a scholarly work using an open repository
+</li>
+<li>
+Create appropriate metadata to describe a new work and mint a DOI for it
+</li>
+<li>
+Retrieve the metadata associated with a DOI
+</li>
+<li>
+Apply content negotiation commands to obtain a citation for a given DOI in a preferred style (e.g. BibTeX or APA) from the CrossRef API
+</li>
+<li>
+Gain experience with command line tools to:
+</li>
+<li>
+parse DOI metadata in JSON (Javascript Object Notation) format;
+</li>
+<li>
+convert documents in one markup format to another format
+</li>
+<li>
+concatenate citations into a single BibTeX publication list for reuse in other researcher systems (ORCiD; MySciEnCV; Latex)
+</li>
 </ul>
-
-<h2>Topics:</h2>
-
-<ol>
-<li><a href="00-intro-dois.html">Intro</a></li>
-<li><a href="01-register-doi.html">Register a DOI</a></li>
+<h2 id="topics">
+Topics:
+</h2>
+<ol type="1">
+<li>
+<a href="00-intro-dois.html">Intro</a>
+</li>
+<li>
+<a href="01-register-doi.html">Register a DOI</a>
+</li>
 </ol>
-
-<h2>Requirements</h2>
-
-<p>Author Carpentry&rsquo;s teaching is hands-on, so participants are encouraged to use
-their own computers to insure the proper setup of tools for an efficient
-workflow.</p>
-
-<p>You should have a list of publications (with a few DOIs) and a scholarly object (like a presentation, data set, report, or photo) that you are willing to share in an
-open repository with an associated DOI.</p>
-
-<p>This lesson requires basic familiarity with the bash shell, similar to the
-experience gained through the
-<a href="http://swcarpentry.github.io/shell-novice/">Software Carpentry shell lesson</a>.
-You&rsquo;ll need to have a bash shell installed, you can follow
-<a href="https://swcarpentry.github.io/workshop-template/#setup">these instructions</a>.</p>
-
-<p>Your computer will also need to have running the open source json parsing tool, jQuery, available at:
- <a href="https://stedolan.github.io/jq/">jq json parser</a> to be able to &lsquo;pretty print&rsquo; json data retrieved from API services
-and pandoc, the universal document converter, available at:
-<a href="https://pandoc.org/">pandoc</a>.</p>
-
-<h2>Cheat Sheet</h2>
-
-<p>jQuery (jq) Quick API Reference, <a href="https://oscarotero.com/jquery/">https://oscarotero.com/jquery/</a></p>
-
-<h2>References</h2>
-
+<h2 id="requirements">
+Requirements
+</h2>
+<p>
+Author Carpentry’s teaching is hands-on, so participants are encouraged to use their own computers to insure the proper setup of tools for an efficient workflow.
+</p>
+<p>
+You should have a list of publications (with a few DOIs) and a scholarly object (like a presentation, data set, report, or photo) that you are willing to share in an open repository with an associated DOI.
+</p>
+<p>
+This lesson requires basic familiarity with the bash shell, similar to the experience gained through the <a href="http://swcarpentry.github.io/shell-novice/">Software Carpentry shell lesson</a>. You’ll need to have a bash shell installed, you can follow <a href="https://swcarpentry.github.io/workshop-template/#setup">these instructions</a>.
+</p>
+<p>
+Your computer will also need to have running the open source json parsing tool, jQuery, available at: <a href="https://stedolan.github.io/jq/">jq json parser</a> to be able to ‘pretty print’ json data retrieved from API services and pandoc, the universal document converter, available at: <a href="https://pandoc.org/">pandoc</a>.
+</p>
+<h2 id="cheat-sheet">
+Cheat Sheet
+</h2>
+<p>
+jQuery (jq) Quick API Reference, https://oscarotero.com/jquery/
+</p>
+<h2 id="references">
+References
+</h2>
 <ul>
-<li>curl documentation, <a href="https://curl.haxx.se/">https://curl.haxx.se/</a></li>
-<li>CrossRef REST API, <a href="https://github.com/CrossRef/rest-api-doc">https://github.com/CrossRef/rest-api-doc</a></li>
-<li>CrossRef Content Negotiation, <a href="https://citation.crosscite.org/docs.html">https://citation.crosscite.org/docs.html</a></li>
-<li>Beyond the DOI to richer metadata, CrossRef Blog posting of June 15, 2016 by
-April Ondis,
-<a href="http://blog.crossref.org/2016/06/beyond-the-doi-to-richer-metadata.html">http://blog.crossref.org/2016/06/beyond-the-doi-to-richer-metadata.html</a></li>
-<li>DataCite API, <a href="https://api.datacite.org/">https://api.datacite.org/</a></li>
-<li>Digital Object Identifier (DOI) Handbook, <a href="https://www.doi.org/hb.html">https://www.doi.org/hb.html</a></li>
-<li>Digital Object Identifier System and DOI Names (DOIs) Guide from Australian
-National Data Service, <a href="http://www.ands.org.au/guides/doi">http://www.ands.org.au/guides/doi</a></li>
-<li>DOI Citation Formatter beta, <a href="https://citation.crosscite.org">https://citation.crosscite.org</a></li>
-<li>jq online testing tool, <a href="https://jqplay.org/">https://jqplay.org/</a></li>
-<li>Parsing JSON with jq, <a href="http://www.compciv.org/recipes/cli/jq-for-parsing-json/">http://www.compciv.org/recipes/cli/jq-for-parsing-json/</a></li>
-<li>Pandoc User Manual, <a href="http://pandoc.org/MANUAL.html">http://pandoc.org/MANUAL.html</a></li>
+<li>
+curl documentation, https://curl.haxx.se/
+</li>
+<li>
+CrossRef REST API, https://github.com/CrossRef/rest-api-doc
+</li>
+<li>
+CrossRef Content Negotiation, https://citation.crosscite.org/docs.html
+</li>
+<li>
+Beyond the DOI to richer metadata, CrossRef Blog posting of June 15, 2016 by April Ondis, http://blog.crossref.org/2016/06/beyond-the-doi-to-richer-metadata.html
+</li>
+<li>
+DataCite API, https://api.datacite.org/
+</li>
+<li>
+Digital Object Identifier (DOI) Handbook, https://www.doi.org/hb.html
+</li>
+<li>
+Digital Object Identifier System and DOI Names (DOIs) Guide from Australian National Data Service, http://www.ands.org.au/guides/doi
+</li>
+<li>
+DOI Citation Formatter beta, https://citation.crosscite.org
+</li>
+<li>
+jq online testing tool, https://jqplay.org/
+</li>
+<li>
+Parsing JSON with jq, http://www.compciv.org/recipes/cli/jq-for-parsing-json/
+</li>
+<li>
+Pandoc User Manual, http://pandoc.org/MANUAL.html
+</li>
 </ul>
-
 </section>
 
 <footer>
