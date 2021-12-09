@@ -18,7 +18,7 @@ Fork instead.
 
 Set up
 
-* Download and install mkpage from https://github.com/caltechlibrary/mkpage
+* Download and install mkpage 1.0+ from https://github.com/caltechlibrary/mkpage
 * Clone a copy of the repository to your local machine.  You can use the GitHub
 Desktop application or the command line command using 
 'git clone https://github.com/AuthorCarpentry/lesson-name'
