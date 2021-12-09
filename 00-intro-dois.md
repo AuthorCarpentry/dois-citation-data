@@ -157,6 +157,7 @@ Solution
     $ cat file1.bib file2.bib file3.bib > publist.bib
 
 ---
+
 ### Exercise 4. The final step in your author carpentry DOI pipeline to make a 'publication list' with your works based on their DOIs. Can you apply the steps learned in Exercises 2+3 to accomplish this task?
 
 HINT: You need to use content negotation with the DOI database to retrieve  citations for each DOI you have. Then combine the individual citations into a single file.  
@@ -213,6 +214,7 @@ lesson.
 
 
 ---
+
 ### Exercise 5. Find out who owns a DOI prefix
 
 DOI prefixes can be assigned by different Registration Agencies to different

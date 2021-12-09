@@ -213,28 +213,17 @@ Exercise 3c. Retrieve and save bibtex citations for three more research papers s
 Solution
 </p>
 <pre><code>$ cat file1.bib file2.bib file3.bib &gt; publist.bib</code></pre>
-<table style="width:6%;">
-<colgroup>
-<col style="width: 5%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>
-### Exercise 4. The final step in your author carpentry DOI pipeline to make a ‘publication list’ with your works based on their DOIs. Can you apply the steps learned in Exercises 2+3 to accomplish this task?
-</td>
-</tr>
-<tr class="even">
-<td>
+<hr />
+<h3 id="exercise-4.-the-final-step-in-your-author-carpentry-doi-pipeline-to-make-a-publication-list-with-your-works-based-on-their-dois.-can-you-apply-the-steps-learned-in-exercises-23-to-accomplish-this-task">
+Exercise 4. The final step in your author carpentry DOI pipeline to make a ‘publication list’ with your works based on their DOIs. Can you apply the steps learned in Exercises 2+3 to accomplish this task?
+</h3>
+<p>
 HINT: You need to use content negotation with the DOI database to retrieve citations for each DOI you have. Then combine the individual citations into a single file.
-</td>
-</tr>
-<tr class="odd">
-<td>
+</p>
+<p>
 Once you have a bibtex file with your DOIs and citations, you are ready to set up your ORCiD account and connect your author ID with your DOIs.`
-</td>
-</tr>
-</tbody>
-</table>
+</p>
+<hr />
 <h2 id="anatomy-of-a-doi">
 Anatomy of a DOI
 </h2>
@@ -265,38 +254,20 @@ The metadata associated with the DOI is often rich enough to provide useful data
 <p>
 <img src="img/Figure1.jpg" alt="Anatomy of a DOI" width="666" height ="371">
 </p>
-<table style="width:6%;">
-<colgroup>
-<col style="width: 5%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>
-### Exercise 5. Find out who owns a DOI prefix
-</td>
-</tr>
-<tr class="even">
-<td>
+<hr />
+<h3 id="exercise-5.-find-out-who-owns-a-doi-prefix">
+Exercise 5. Find out who owns a DOI prefix
+</h3>
+<p>
 DOI prefixes can be assigned by different Registration Agencies to different users. DataCite has an api that gives you the Registraition Agency.
-</td>
-</tr>
-<tr class="odd">
-<td>
-$ curl “https://api.datacite.org/prefixes/10.14291” $ curl “https://api.datacite.org/prefixes/10.1021”
-</td>
-</tr>
-<tr class="even">
-<td>
+</p>
+<pre><code>$ curl &quot;https://api.datacite.org/prefixes/10.14291&quot;
+$ curl &quot;https://api.datacite.org/prefixes/10.1021&quot;</code></pre>
+<p>
 If the Registration Agency is CrossRef, you can use the CrossRef API to get more information about the member assigned to the prefix.
-</td>
-</tr>
-<tr class="odd">
-<td>
-$ curl “https://api.crossref.org/prefixes/10.1021”
-</td>
-</tr>
-</tbody>
-</table>
+</p>
+<pre><code>$ curl &quot;https://api.crossref.org/prefixes/10.1021&quot;</code></pre>
+<hr />
 <p>
 Next: <a href="01-register-doi.html">Register a DOI</a>
 </p>
