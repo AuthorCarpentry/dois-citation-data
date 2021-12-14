@@ -1,6 +1,6 @@
 # Register a DOI
 
-30 min
+15 min
 
 ---
 
