@@ -64,86 +64,52 @@ since publication, and more.)
 
 In this session we'll explore the anatomy of a DOI, how it is generated, and how to retrieve the rich metadata associated with a given research object and its DOI.
 
-Finally, we will add to our command line repetoire by practicing a few new tools to help us acquire, examine, and use scholarly metadata available on the Web.
+We'll add to our command line repetoire by practicing a few new tools to help us acquire, examine, and use scholarly metadata available on the Web.
 
 - `curl`: a unix command for transferring data from or to an Internet server without human interaction. We will use `curl` to retrieve data from a DOI database and to negotiate for data in the format most convenient for our use.
-- `jq`: a command-line tool that allows us to parse data in JSON (Javascript Object Notation) format. JSON is great for machines to understand but looks like gobbleygook to most humans. We will use `jq` to 'pretty print' data we retrieve from the DOI database
-- `pandoc`: a 'swiss-army knife' tool for converting a document in one markup format to another format. We will use `pandoc` to convert html data we retrieve with `curl` to a `.docx` format for clean reading and printing. (_NOTE_: In other AuthorCarpentry lessons, `pandoc` is used to convert markdown (`.md`) files into nicely typeset `.pdf` format for electronic and print.)
 
----
+We're using the example DOI '10.1186/s12916-015-0469-2', which is an article
 
-### Exercise 1a. Practice using `curl` to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.
+### Exercise 1. Introducing the CrossRef API
 
-First, check that you are on your desktop.  Type
+CrossRef mints DOIs for most scholarly journal content. Their API contains lots
+of useful metadata. We'll start by looking at the API in our web browser. APIs
+sound fancy, but they act much like normal web pages. They just return data
+files. The default data formate here is JSON. I recommend using Firefox for this 
+exercise as it helps by formatting the JSON file for us. In browsers like
+Chrome, you can install plugins JSONVue to make JSON display prettier.
 
-    $ pwd
-
-This will print your location to the terminal.  In most cases you can move to the
-desktop by typing
-
-    $ cd ~/Desktop
-
-Now we'll use curl to grab web content.  Note that you can copy and paste these
-commands into your terminal window to save typing.
-
-    $ curl http://thinkchecksubmit.org/check/ -o think.html
-    $ head think.html
-
-What is the format of the retrieved content? How would we view this content?
-
-### Exercise 1b. Convert the file into a clean format for reading or printing using `pandoc`
-
-    $ pandoc -o think.docx think.html
-
-Please note .docx instead of .doc, otherwise it doesn't work. Launch LibreOffice: how does the document look now? Will printing this document in this format look different than if you print it directly from the website?
-
-
-TIP: _Feel free to send yourself a copy of this useful handout on how to assess whether a journal is reputable or not_
-
----
-
-### Exercise 2a. Practice using `curl` to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.
-
-    $ curl -o shen.json https://api.crossref.org/works/10.1186/s12916-015-0469-2
-    $ head shen.json
-
- What is the format of the retrieved content? 
-
-### Exercise 2b. Use either atom (with pretty-json)  or jq to pretty print the file for easier human reading.
-
-> #### Atom
->
-> Open your .json file in Atom. Click Packages/Pretty JSON/Prettify.  Now you
-> can save the formatted file as shen_pretty.json.  
->
-> OR
->
-> ####  jq
->
->    $ jq . shen.json > shen_pretty.json
-
-Now that you can read the file more easily, you should be able to answer the following questions:
+Open https://api.crossref.org/works/10.1186/s12916-015-0469-2 in a web browser
 
 - what is the title of the document?
 - how many references does this article cite?
 
----
+### Exercise 2. Practice using `curl` to retrieve data from the DOI database, CrossRef,  and save to a file on your desktop. Then display the file on your terminal.
 
-### Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.
+    $ curl -o shen.json https://api.crossref.org/works/10.1186/s12916-015-0469-2
+    $ head shen.json
+
+ Can you find the publisher? 
+
+    Extra: you can install the command line application jq to pretty print the file for easier human reading.
+
+        >    $ jq . shen.json > shen_pretty.json
+
+### Exercise 3. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.
 
     $ curl -LH "Accept:text/x-bibliography; style=apa" https://doi.org/10.1186/s12916-015-0469-2 -o shen.txt
 
     The -H option provides headers and the -L option tells curl to follow
 redirects.  See what you get when you leave off the -L
 
-### Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex.  Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format. Save the output to a file on your desktop for later reuse.
+### Exercise 4. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex.  Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format. Save the output to a file on your desktop for later reuse.
 (For example, the ORCiD researcher profile system and certain funding agencies' submission systems accespt bibtex citations).
 
     $ curl -LH "Accept:application/x-bibtex" https://doi.org/10.1186/s12916-015-0469-2 -o shen.bib
 
     $ head shen.bib
 
-### Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:
+### Exercise 5. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:
 
 - 10.1126/science.342.6154.60
 - 10.3346/jkms.2017.32.5.713
@@ -155,16 +121,6 @@ redirects.  See what you get when you leave off the -L
 Solution
    
     $ cat file1.bib file2.bib file3.bib > publist.bib
-
----
-
-### Exercise 4. The final step in your author carpentry DOI pipeline to make a 'publication list' with your works based on their DOIs. Can you apply the steps learned in Exercises 2+3 to accomplish this task?
-
-HINT: You need to use content negotation with the DOI database to retrieve  citations for each DOI you have. Then combine the individual citations into a single file.  
-
-Once you have a bibtex file with your DOIs and citations, you are ready to set up your ORCiD account and connect your author ID with your DOIs.`
-
----
 
 
 ## Anatomy of a DOI
@@ -215,18 +171,23 @@ lesson.
 
 ---
 
-### Exercise 5. Find out who owns a DOI prefix
+### Exercise 6. Find out who owns a DOI prefix
 
 DOI prefixes can be assigned by different Registration Agencies to different
-users.  DataCite has an api that gives you the Registraition Agency.
+users.  While you can get the registration agency from the DOI.org API
+(https://doi.org/api/handles/), their data isn't the most user friendly. In
+most cases, the Registration Agency will be DataCite or CrossRef, which have
+apis for finding out about a given prefix.
 
     $ curl "https://api.datacite.org/prefixes/10.14291"
     $ curl "https://api.datacite.org/prefixes/10.1021"
 
-If the Registration Agency is CrossRef, you can use the CrossRef API to get
-more information about the member assigned to the prefix.
 
     $ curl "https://api.crossref.org/prefixes/10.1021"
+    $ curl "https://api.crossref.org/prefixes/10.14291"
+
+If the prefix is not managed by the Registration Agency, you'll get an error
+message.
 
 ---
 

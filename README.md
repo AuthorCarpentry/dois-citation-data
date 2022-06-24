@@ -3,7 +3,7 @@ Author Carpentry : Persistent access for research outputs with Digital Object Id
 
 *Content Contributors: Gail Clement, Tom Morrell*
 
-*Lesson Maintainers: Gail Clement, Tom Morrell*
+*Lesson Maintainers: Tom Morrell*
 
 **Lesson status: Active**
 
@@ -21,10 +21,7 @@ Author Carpentry : Persistent access for research outputs with Digital Object Id
 * Create appropriate metadata to describe a new work and mint a DOI for it
 * Retrieve the metadata associated with a DOI
 * Apply content negotiation commands to obtain a citation for a given DOI in a preferred style (e.g. BibTeX  or APA) from the CrossRef API
-* Gain experience with command line tools to:
-- parse DOI metadata in JSON (Javascript Object Notation) format;
-- convert documents in one markup format to another format
-- concatenate  citations into a single BibTeX publication list for reuse in other researcher systems (ORCiD; MySciEnCV; Latex)
+* Gain experience with command line tools to concatenate  citations into a single BibTeX publication list for reuse in other researcher systems (ORCiD; MySciEnCV; Latex)
 
 ## Topics:
 
@@ -46,10 +43,8 @@ experience gained through the
 You'll need to have a bash shell installed, you can follow
 [these instructions](https://swcarpentry.github.io/workshop-template/#setup).
 
-Your computer will also need to have running the open source json parsing tool, jQuery, available at:
+If you choose, you can also install an open source json parsing tool, jQuery, available at:
  [jq json parser](https://stedolan.github.io/jq/) to be able to 'pretty print' json data retrieved from API services
-and pandoc, the universal document converter, available at:
-[pandoc](https://pandoc.org/).
 
 ## Cheat Sheet
 jQuery (jq) Quick API Reference, https://oscarotero.com/jquery/
@@ -69,4 +64,3 @@ National Data Service, http://www.ands.org.au/guides/doi
 + DOI Citation Formatter beta, https://citation.crosscite.org
 + jq online testing tool, https://jqplay.org/
 + Parsing JSON with jq, http://www.compciv.org/recipes/cli/jq-for-parsing-json/
-+ Pandoc User Manual, http://pandoc.org/MANUAL.html

@@ -90,80 +90,24 @@ Nonetheless, the metadata associated with the DOI is rich enough to provide usef
 In this session we’ll explore the anatomy of a DOI, how it is generated, and how to retrieve the rich metadata associated with a given research object and its DOI.
 </p>
 <p>
-Finally, we will add to our command line repetoire by practicing a few new tools to help us acquire, examine, and use scholarly metadata available on the Web.
+We’ll add to our command line repetoire by practicing a few new tools to help us acquire, examine, and use scholarly metadata available on the Web.
 </p>
 <ul>
 <li>
 <code>curl</code>: a unix command for transferring data from or to an Internet server without human interaction. We will use <code>curl</code> to retrieve data from a DOI database and to negotiate for data in the format most convenient for our use.
 </li>
-<li>
-<code>jq</code>: a command-line tool that allows us to parse data in JSON (Javascript Object Notation) format. JSON is great for machines to understand but looks like gobbleygook to most humans. We will use <code>jq</code> to ‘pretty print’ data we retrieve from the DOI database
-</li>
-<li>
-<code>pandoc</code>: a ‘swiss-army knife’ tool for converting a document in one markup format to another format. We will use <code>pandoc</code> to convert html data we retrieve with <code>curl</code> to a <code>.docx</code> format for clean reading and printing. (<em>NOTE</em>: In other AuthorCarpentry lessons, <code>pandoc</code> is used to convert markdown (<code>.md</code>) files into nicely typeset <code>.pdf</code> format for electronic and print.)
-</li>
 </ul>
-<hr />
-<h3 id="exercise-1a.-practice-using-curl-to-interact-with-a-world-wide-web-site-and-retrieve-a-document-from-that-site-to-a-file-on-your-desktop.-then-display-the-file-on-your-terminal.">
-Exercise 1a. Practice using <code>curl</code> to interact with a World Wide Web site and retrieve a document from that site to a file on your desktop. Then display the file on your terminal.
+<p>
+We’re using the example DOI ‘10.1186/s12916-015-0469-2’, which is an article
+</p>
+<h3 id="exercise-1.-introducing-the-crossref-api">
+Exercise 1. Introducing the CrossRef API
 </h3>
 <p>
-First, check that you are on your desktop. Type
-</p>
-<pre><code>$ pwd</code></pre>
-<p>
-This will print your location to the terminal. In most cases you can move to the desktop by typing
-</p>
-<pre><code>$ cd ~/Desktop</code></pre>
-<p>
-Now we’ll use curl to grab web content. Note that you can copy and paste these commands into your terminal window to save typing.
-</p>
-<pre><code>$ curl http://thinkchecksubmit.org/check/ -o think.html
-$ head think.html</code></pre>
-<p>
-What is the format of the retrieved content? How would we view this content?
-</p>
-<h3 id="exercise-1b.-convert-the-file-into-a-clean-format-for-reading-or-printing-using-pandoc">
-Exercise 1b. Convert the file into a clean format for reading or printing using <code>pandoc</code>
-</h3>
-<pre><code>$ pandoc -o think.docx think.html</code></pre>
-<p>
-Please note .docx instead of .doc, otherwise it doesn’t work. Launch LibreOffice: how does the document look now? Will printing this document in this format look different than if you print it directly from the website?
+CrossRef mints DOIs for most scholarly journal content. Their API contains lots of useful metadata. We’ll start by looking at the API in our web browser. APIs sound fancy, but they act much like normal web pages. They just return data files. The default data formate here is JSON. I recommend using Firefox for this exercise as it helps by formatting the JSON file for us. In browsers like Chrome, you can install plugins JSONVue to make JSON display prettier.
 </p>
 <p>
-TIP: <em>Feel free to send yourself a copy of this useful handout on how to assess whether a journal is reputable or not</em>
-</p>
-<hr />
-<h3 id="exercise-2a.-practice-using-curl-to-retrieve-data-from-the-doi-database-crossref-and-save-to-a-file-on-your-desktop.-then-display-the-file-on-your-terminal.">
-Exercise 2a. Practice using <code>curl</code> to retrieve data from the DOI database, CrossRef, and save to a file on your desktop. Then display the file on your terminal.
-</h3>
-<pre><code>$ curl -o shen.json https://api.crossref.org/works/10.1186/s12916-015-0469-2
-$ head shen.json</code></pre>
-<p>
-What is the format of the retrieved content?
-</p>
-<h3 id="exercise-2b.-use-either-atom-with-pretty-json-or-jq-to-pretty-print-the-file-for-easier-human-reading.">
-Exercise 2b. Use either atom (with pretty-json) or jq to pretty print the file for easier human reading.
-</h3>
-<blockquote>
-<h4 id="atom">
-Atom
-</h4>
-<p>
-Open your .json file in Atom. Click Packages/Pretty JSON/Prettify. Now you can save the formatted file as shen_pretty.json.
-</p>
-<p>
-OR
-</p>
-<h4 id="jq">
-jq
-</h4>
-<p>
-$ jq . shen.json &gt; shen_pretty.json
-</p>
-</blockquote>
-<p>
-Now that you can read the file more easily, you should be able to answer the following questions:
+Open https://api.crossref.org/works/10.1186/s12916-015-0469-2 in a web browser
 </p>
 <ul>
 <li>
@@ -173,9 +117,19 @@ what is the title of the document?
 how many references does this article cite?
 </li>
 </ul>
-<hr />
-<h3 id="exercise-3a.-you-just-need-the-citation-not-the-entire-metadata-record-for-this-research-object.-use-content-negotation-with-the-crossref-database-to-just-get-the-citation-for-this-item-in-apa-style.-view-the-result-on-your-screen.">
-Exercise 3a. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.
+<h3 id="exercise-2.-practice-using-curl-to-retrieve-data-from-the-doi-database-crossref-and-save-to-a-file-on-your-desktop.-then-display-the-file-on-your-terminal.">
+Exercise 2. Practice using <code>curl</code> to retrieve data from the DOI database, CrossRef, and save to a file on your desktop. Then display the file on your terminal.
+</h3>
+<pre><code>$ curl -o shen.json https://api.crossref.org/works/10.1186/s12916-015-0469-2
+$ head shen.json</code></pre>
+<p>
+Can you find the publisher?
+</p>
+<pre><code>Extra: you can install the command line application jq to pretty print the file for easier human reading.
+
+    &gt;    $ jq . shen.json &gt; shen_pretty.json</code></pre>
+<h3 id="exercise-3.-you-just-need-the-citation-not-the-entire-metadata-record-for-this-research-object.-use-content-negotation-with-the-crossref-database-to-just-get-the-citation-for-this-item-in-apa-style.-view-the-result-on-your-screen.">
+Exercise 3. You just need the citation, not the entire metadata record for this research object. Use content negotation with the CrossRef database to just get the citation for this item, in APA style. View the result on your screen.
 </h3>
 <pre><code>$ curl -LH &quot;Accept:text/x-bibliography; style=apa&quot; https://doi.org/10.1186/s12916-015-0469-2 -o shen.txt
 
@@ -183,8 +137,8 @@ The -H option provides headers and the -L option tells curl to follow</code></pr
 <p>
 redirects. See what you get when you leave off the -L
 </p>
-<h3 id="exercise-3b.-it-turns-out-that-some-other-systems-where-you-want-to-submit-this-citation-data-only-take-the-open-citation-format-bibtex.-perform-content-negotiation-with-the-crossref-database-again-but-this-time-require-the-citation-in-bibtex-format.-save-the-output-to-a-file-on-your-desktop-for-later-reuse.">
-Exercise 3b. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex. Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format. Save the output to a file on your desktop for later reuse.
+<h3 id="exercise-4.-it-turns-out-that-some-other-systems-where-you-want-to-submit-this-citation-data-only-take-the-open-citation-format-bibtex.-perform-content-negotiation-with-the-crossref-database-again-but-this-time-require-the-citation-in-bibtex-format.-save-the-output-to-a-file-on-your-desktop-for-later-reuse.">
+Exercise 4. It turns out that some other systems where you want to submit this citation data only take the open citation format, bibtex. Perform content negotiation with the CrossRef database again, but this time require the citation in bibtex format. Save the output to a file on your desktop for later reuse.
 </h3>
 <p>
 (For example, the ORCiD researcher profile system and certain funding agencies’ submission systems accespt bibtex citations).
@@ -192,8 +146,8 @@ Exercise 3b. It turns out that some other systems where you want to submit this 
 <pre><code>$ curl -LH &quot;Accept:application/x-bibtex&quot; https://doi.org/10.1186/s12916-015-0469-2 -o shen.bib
 
 $ head shen.bib</code></pre>
-<h3 id="exercise-3c.-retrieve-and-save-bibtex-citations-for-three-more-research-papers-so-you-can-complete-your-publication-list-for-your-project.-here-are-the-dois-for-each-paper">
-Exercise 3c. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:
+<h3 id="exercise-5.-retrieve-and-save-bibtex-citations-for-three-more-research-papers-so-you-can-complete-your-publication-list-for-your-project.-here-are-the-dois-for-each-paper">
+Exercise 5. Retrieve and save bibtex citations for three more research papers so you can complete your publication list for your project. Here are the DOIs for each paper:
 </h3>
 <ul>
 <li>
@@ -213,17 +167,6 @@ Exercise 3c. Retrieve and save bibtex citations for three more research papers s
 Solution
 </p>
 <pre><code>$ cat file1.bib file2.bib file3.bib &gt; publist.bib</code></pre>
-<hr />
-<h3 id="exercise-4.-the-final-step-in-your-author-carpentry-doi-pipeline-to-make-a-publication-list-with-your-works-based-on-their-dois.-can-you-apply-the-steps-learned-in-exercises-23-to-accomplish-this-task">
-Exercise 4. The final step in your author carpentry DOI pipeline to make a ‘publication list’ with your works based on their DOIs. Can you apply the steps learned in Exercises 2+3 to accomplish this task?
-</h3>
-<p>
-HINT: You need to use content negotation with the DOI database to retrieve citations for each DOI you have. Then combine the individual citations into a single file.
-</p>
-<p>
-Once you have a bibtex file with your DOIs and citations, you are ready to set up your ORCiD account and connect your author ID with your DOIs.`
-</p>
-<hr />
 <h2 id="anatomy-of-a-doi">
 Anatomy of a DOI
 </h2>
@@ -255,18 +198,21 @@ The metadata associated with the DOI is often rich enough to provide useful data
 <img src="img/Figure1.jpg" alt="Anatomy of a DOI" width="666" height ="371">
 </p>
 <hr />
-<h3 id="exercise-5.-find-out-who-owns-a-doi-prefix">
-Exercise 5. Find out who owns a DOI prefix
+<h3 id="exercise-6.-find-out-who-owns-a-doi-prefix">
+Exercise 6. Find out who owns a DOI prefix
 </h3>
 <p>
-DOI prefixes can be assigned by different Registration Agencies to different users. DataCite has an api that gives you the Registraition Agency.
+DOI prefixes can be assigned by different Registration Agencies to different users. While you can get the registration agency from the DOI.org API (https://doi.org/api/handles/), their data isn’t the most user friendly. In most cases, the Registration Agency will be DataCite or CrossRef, which have apis for finding out about a given prefix.
 </p>
 <pre><code>$ curl &quot;https://api.datacite.org/prefixes/10.14291&quot;
-$ curl &quot;https://api.datacite.org/prefixes/10.1021&quot;</code></pre>
+$ curl &quot;https://api.datacite.org/prefixes/10.1021&quot;
+
+
+$ curl &quot;https://api.crossref.org/prefixes/10.1021&quot;
+$ curl &quot;https://api.crossref.org/prefixes/10.14291&quot;</code></pre>
 <p>
-If the Registration Agency is CrossRef, you can use the CrossRef API to get more information about the member assigned to the prefix.
+If the prefix is not managed by the Registration Agency, you’ll get an error message.
 </p>
-<pre><code>$ curl &quot;https://api.crossref.org/prefixes/10.1021&quot;</code></pre>
 <hr />
 <p>
 Next: <a href="01-register-doi.html">Register a DOI</a>
