@@ -11,10 +11,6 @@
 * Identify components of a DOI
 * Apply basic UNIX curl commands to test and resolve DOIs for research objects
 * Explain how the DOI registration system is organized and what information it yields for authors.
-* Practice basics of three command line tools useful for working with textual data from the World Wide Web:
-    - `curl`
-    - `jq`
-    - `pandoc`
 
 ---
 
