@@ -71,7 +71,14 @@ To begin, go to [Zenodo](https://www.zenodo.org/) and get an account by
 clicking the sign up button in the upper right hand corner.  Then click the
 'Upload' link at the top of the screen and the green 'New Upload' button.
 You'll see a place to drag and drop the files you're going to upload. Then
-click the green upload button.  
+click the green upload button.If the uploader gives an error message you may
+have to refresh the page first.
+
+
+Click on the "Reserve a DOI button". You'll get a DOI that you can use to
+reference your scholarly content, but it wont't resolve until you publish your
+record.
+
 
 Next, you'll have to enter the metadata that describes your scholarly work, some of
 which will be registered with your DOI.
@@ -145,6 +152,20 @@ You'll see that Zenodo brings you to the public record page for your work.
 Zenodo provides a citation that includes your newly created DOI.  We'll be
 using this DOI throughout the rest of the workshop.  
 
+
+## Getting Metadata
+
+We can utilize the first set of skills for getting metadata from a DOI on the
+DOI we just got from Zenodo. We'll utilize DataCite instead of CrossRef, but it
+works exactly the same. In your web browser go to:
+
+https://api.datacite.org/works/10.5281/zenodo.6780628
+
+substituting your DOI. We can also get citations. In a terminal window type
+
+curl -LH "Accept:text/x-bibliography; style=apa" https://doi.org/10.5281/zenodo.6780628
+
+and you'll get a APA formatted ciation for your new scholarly work!
 
 ---
 

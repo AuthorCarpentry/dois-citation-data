@@ -173,8 +173,8 @@ DOI prefixes can be assigned by different Registration Agencies to different
 users.  You can see some (slightly cryptic) information about the Registration 
 Agency by going to doi.org with the prefix
 
-    https://10.14291
-    https://10.1021
+    https://doi.org/10.14291
+    https://doi.org/10.1021
 
 
 This is also available in API form at https://doi.org/api/handles/. In
