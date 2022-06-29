@@ -188,14 +188,16 @@ The metadata associated with the DOI is often rich enough to provide useful data
 Exercise 6. Find out who owns a DOI prefix
 </h3>
 <p>
-DOI prefixes can be assigned by different Registration Agencies to different users. While you can get the registration agency from the DOI.org API (https://doi.org/api/handles/), their data isn’t the most user friendly. In most cases, the Registration Agency will be DataCite or CrossRef, which have apis for finding out about a given prefix.
+DOI prefixes can be assigned by different Registration Agencies to different users. You can see some (slightly cryptic) information about the Registration Agency by going to doi.org with the prefix
 </p>
-<pre><code>$ curl &quot;https://api.datacite.org/prefixes/10.14291&quot;
-$ curl &quot;https://api.datacite.org/prefixes/10.1021&quot;
+<pre><code>https://10.14291
+https://10.1021</code></pre>
+<p>
+This is also available in API form at https://doi.org/api/handles/. In most cases, the Registration Agency will be DataCite or CrossRef, which have apis for finding out about a given prefix.
+</p>
+<pre><code>https://api.crossref.org/prefixes/10.1021
 
-
-$ curl &quot;https://api.crossref.org/prefixes/10.1021&quot;
-$ curl &quot;https://api.crossref.org/prefixes/10.14291&quot;</code></pre>
+https://api.datacite.org/prefixes/10.14291</code></pre>
 <p>
 If the prefix is not managed by the Registration Agency, you’ll get an error message.
 </p>
